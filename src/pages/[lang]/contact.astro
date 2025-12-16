@@ -14,39 +14,37 @@ const t = useTranslations(lang as any);
 
 ---
 
-<Layout title="Contact Us - GTBM">
-  <section class="page-header">
-    <div class="container">
-      <h1>Contact Us</h1>
-      <p>Get in touch for consultations and site visits.</p>
+<Layout title={t('contact.title') + " - GTBM"}>
+  <section class="bg-primary text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-2 text-white">{t('contact.title')}</h1>
+      <p class="text-lg">{t('contact.subtitle')}</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container contact-wrapper">
+  <section class="py-20 bg-background text-text">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
       <!-- Contact Info -->
       <div class="contact-info">
-        <h2>Get In Touch</h2>
-        <div class="info-item">
-          <h3>📍 Visit Us</h3>
-          <p>New Baneshwor-10, Kathmandu, Nepal</p>
+        <h2 class="text-2xl font-bold text-primary mb-8">{t('contact.info.title')}</h2>
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-2 text-secondary">📍 {t('contact.info.visit')}</h3>
+          <p class="text-text">{t('contact.info.address')}</p>
         </div>
-        <div class="info-item">
-          <h3>📞 Call Us</h3>
-          <p><a href="tel:9851074241" class="highlight-link">9851074241</a></p>
-          <p><a href="tel:014XXXXXX">01-4XXXXXX</a></p>
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-2 text-secondary">📞 {t('contact.info.call')}</h3>
+          <p><a href="tel:9851074241" class="text-lg font-bold text-primary hover:underline">9851074241</a></p>
+          <p><a href="tel:014XXXXXX" class="text-text hover:text-primary transition-colors">01-4XXXXXX</a></p>
         </div>
-        <div class="info-item">
-          <h3>✉️ Email Us</h3>
-          <p><a href="mailto:info@gtbm.com.np">info@gtbm.com.np</a></p>
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-2 text-secondary">✉️ {t('contact.info.email')}</h3>
+          <p><a href="mailto:info@gtbm.com.np" class="text-text hover:text-primary transition-colors">info@gtbm.com.np</a></p>
         </div>
 
-        <div class="map-container">
+        <div class="mt-8">
             <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.564539668486!2d85.3341!3d27.6915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a792044813%3A0x67399a9a0e663806!2sNew%20Baneshwor%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
-            width="100%" 
-            height="300" 
-            style="border:0; border-radius: 8px;" 
+            class="block w-full h-[300px] rounded-lg border-0"
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
@@ -55,136 +53,39 @@ const t = useTranslations(lang as any);
       </div>
 
       <!-- Inquiry Form -->
-      <div class="contact-form-container">
-        <h2>Send an Inquiry</h2>
-        <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for the inquiry! We will contact you soon.');">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required placeholder="Ram Bahadur">
+      <div class="bg-card-bg p-6 md:p-10 rounded-lg shadow-md border border-gray-100">
+        <h2 class="text-2xl font-bold text-primary mb-8">{t('contact.form.title')}</h2>
+        <form class="space-y-6" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for the inquiry! We will contact you soon.');">
+          <div>
+            <label for="name" class="block mb-2 font-semibold text-[0.95rem]">{t('contact.form.name')}</label>
+            <input type="text" id="name" name="name" required placeholder={t('contact.form.placeholder.name')} class="w-full p-3 border border-gray-300 rounded focus:border-primary focus:outline-none transition-colors" />
           </div>
           
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required placeholder="98XXXXXXXX">
+          <div>
+            <label for="phone" class="block mb-2 font-semibold text-[0.95rem]">{t('contact.form.phone')}</label>
+            <input type="tel" id="phone" name="phone" required placeholder={t('contact.form.placeholder.phone')} class="w-full p-3 border border-gray-300 rounded focus:border-primary focus:outline-none transition-colors" />
           </div>
 
-          <div class="form-group">
-            <label for="service">Service Interested In</label>
-            <select id="service" name="service">
-              <option value="real-estate">Real Estate (Buy/Sell)</option>
-              <option value="construction">Construction (Thekka)</option>
-              <option value="design">2D/3D Design</option>
-              <option value="plotting">Plotting Services</option>
-              <option value="maintenance">Maintenance</option>
-              <option value="other">Other</option>
+          <div>
+            <label for="service" class="block mb-2 font-semibold text-[0.95rem]">{t('contact.form.service')}</label>
+            <select id="service" name="service" class="w-full p-3 border border-gray-300 rounded focus:border-primary focus:outline-none transition-colors bg-white">
+              <option value="real-estate">{t('contact.form.option.realestate')}</option>
+              <option value="construction">{t('contact.form.option.construction')}</option>
+              <option value="design">{t('contact.form.option.design')}</option>
+              <option value="plotting">{t('contact.form.option.plotting')}</option>
+              <option value="maintenance">{t('contact.form.option.maintenance')}</option>
+              <option value="other">{t('contact.form.option.other')}</option>
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us more about your requirement..."></textarea>
+          <div>
+            <label for="message" class="block mb-2 font-semibold text-[0.95rem]">{t('contact.form.message')}</label>
+            <textarea id="message" name="message" rows="5" placeholder={t('contact.form.placeholder.message')} class="w-full p-3 border border-gray-300 rounded focus:border-primary focus:outline-none transition-colors"></textarea>
           </div>
 
-          <button type="button" class="btn btn-primary full-width" onclick="alert('Thank you for the inquiry! This is a demo form.')">Send Message</button>
+          <button type="button" class="btn btn-primary w-full bg-primary text-white p-3 rounded font-bold hover:bg-secondary transition-colors" onclick="alert('Thank you for the inquiry! This is a demo form.')">{t('contact.form.submit')}</button>
         </form>
       </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  .page-header {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 4rem 0;
-    text-align: center;
-  }
-
-  .section {
-    padding: 5rem 0;
-  }
-
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-
-  .contact-info h2, .contact-form-container h2 {
-    color: var(--color-primary);
-    margin-bottom: 2rem;
-  }
-
-  .info-item {
-    margin-bottom: 2rem;
-  }
-
-  .info-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-secondary);
-  }
-
-  .highlight-link {
-    font-weight: 700;
-    font-size: 1.2rem;
-  }
-
-  .map-container {
-    margin-top: 2rem;
-  }
-
-  /* Form Styles */
-  .contact-form-container {
-    background-color: white;
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    border: 1px solid #eee;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--color-primary);
-    outline: none;
-  }
-
-  .full-width {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .contact-wrapper {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    
-    .contact-form-container {
-        padding: 1.5rem;
-    }
-  }
-</style>

@@ -11,6 +11,11 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = useTranslations(lang as any);
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+function l(path: string) {
+  return getRelativeLocaleUrl(lang, path);
+}
 
 
 const projects = [
@@ -53,43 +58,43 @@ const projects = [
 ];
 ---
 
-<Layout title="Projects & Listings - GTBM">
-  <section class="page-header">
-    <div class="container">
-      <h1>Projects & Listings</h1>
-      <p>Explore our latest properties and completed construction projects.</p>
+<Layout title={t('projects.title') + " - GTBM"}>
+  <section class="bg-primary text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-2 text-white">{t('projects.title')}</h1>
+      <p class="text-lg">{t('projects.subtitle')}</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="projects-grid">
+  <section class="py-20 bg-background text-text">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <div class="project-card">
-            <div class="project-image">
-                <img src={project.image} alt={project.title} />
-                <span class="badge">{project.type}</span>
+          <div class="bg-card-bg rounded-lg shadow-sm overflow-hidden transition-all duration-300 border border-gray-100 hover:shadow-lg group">
+            <div class="relative h-[200px]">
+                <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+                <span class="absolute top-2 right-2 bg-accent text-white px-3 py-1 rounded text-xs font-bold">{project.type}</span>
             </div>
-            <div class="project-info">
-              <h3>{project.title}</h3>
-              <p class="location">📍 {project.location}</p>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+              <p class="text-text-light text-sm mb-4 flex items-center gap-1">📍 {project.location}</p>
               
-              <div class="specs">
-                <div class="spec-item">
-                    <span class="label">Price:</span>
-                    <span class="value">{project.price}</span>
+              <div class="bg-light-gray p-4 rounded mb-6">
+                <div class="flex justify-between mb-1 last:mb-0 text-sm">
+                    <span class="text-gray-600">{t('projects.label.price')}</span>
+                    <span class="font-semibold text-text">{project.price}</span>
                 </div>
-                <div class="spec-item">
-                    <span class="label">Size:</span>
-                    <span class="value">{project.size}</span>
+                <div class="flex justify-between mb-1 last:mb-0 text-sm">
+                    <span class="text-gray-600">{t('projects.label.size')}</span>
+                    <span class="font-semibold text-text">{project.size}</span>
                 </div>
-                 <div class="spec-item">
-                    <span class="label">Road:</span>
-                    <span class="value">{project.road}</span>
+                 <div class="flex justify-between mb-1 last:mb-0 text-sm">
+                    <span class="text-gray-600">{t('projects.label.road')}</span>
+                    <span class="font-semibold text-text">{project.road}</span>
                 </div>
               </div>
 
-              <a href="/contact" class="btn btn-secondary full-width">Book a Site Visit</a>
+              <a href={l('contact')} class="btn btn-secondary w-full block text-center bg-transparent border-2 border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-white transition-colors">{t('projects.cta')}</a>
             </div>
           </div>
         ))}
@@ -97,106 +102,3 @@ const projects = [
     </div>
   </section>
 </Layout>
-
-<style>
-  .page-header {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 4rem 0;
-    text-align: center;
-  }
-
-  .section {
-    padding: 5rem 0;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .project-card {
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-    border: 1px solid #eee;
-  }
-
-  .project-card:hover {
-    box-shadow: var(--shadow-lg);
-  }
-
-  .project-image {
-    position: relative;
-    height: 200px;
-  }
-
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--color-accent);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-
-  .project-info {
-    padding: 1.5rem;
-  }
-
-  .project-info h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-  }
-
-  .location {
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-
-  .specs {
-    background-color: var(--color-light-gray);
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-  }
-
-  .spec-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-  }
-
-  .spec-item:last-child {
-      margin-bottom: 0;
-  }
-
-  .spec-item .label {
-      color: #666;
-  }
-
-  .spec-item .value {
-      font-weight: 600;
-      color: var(--color-text);
-  }
-
-  .full-width {
-      display: block;
-      width: 100%;
-      text-align: center;
-  }
-</style>

@@ -14,233 +14,82 @@ function l(path: string) {
 
 ---
 
-<header class="header">
-  <div class="container header-content">
+<header class="bg-header-bg text-header-text py-4 sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-4 flex justify-between items-center">
     <div class="logo">
       <a href="/">
-        <span class="logo-text">GTBM</span>
+        <span class="font-heading text-3xl font-bold text-white">GTBM</span>
       </a>
     </div>
 
-    <nav class="nav-menu" id="nav-menu">
-      <ul class="nav-list">
-        <li><a href={l('')} class="nav-link">{t('nav.home')}</a></li>
-        
-        <li class="dropdown">
-          <a href={l('about')} class="nav-link dropdown-toggle">{t('nav.about')} ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href={l('about#profile')}>Company Profile</a></li>
-            <li><a href={l('about#director')}>Message from Director</a></li>
-          </ul>
-        </li>
+    <nav class="group flex items-center md:gap-8" id="nav-menu">
+      {/* Mobile Menu Container - Hidden by default on mobile, shown when active */}
+      <div class="fixed left-[-100%] top-[80px] w-full h-[calc(100vh-80px)] bg-primary flex flex-col items-center pt-8 gap-6 transition-[left] duration-300 md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:pt-0 md:gap-8 nav-list-container">
+          <ul class="flex flex-col gap-6 items-center md:flex-row md:gap-8 m-0 p-0 list-none">
+            <li><a href={l('')} class="text-white font-semibold text-base p-2 hover:text-secondary transition-colors">{t('nav.home')}</a></li>
+            
+            <li class="relative group/dropdown">
+              <a href={l('about')} class="text-white font-semibold text-base p-2 hover:text-secondary transition-colors cursor-pointer group-hover/dropdown:text-secondary inline-flex items-center gap-1">
+                  {t('nav.about')} ▾
+              </a>
+              <ul class="absolute top-full left-0 bg-white min-w-[220px] shadow-md rounded-lg hidden flex-col py-2 z-[1001] group-hover/dropdown:flex md:group-hover/dropdown:flex text-left">
+                <li><a href={l('about#profile')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">Company Profile</a></li>
+                <li><a href={l('about#director')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">Message from Director</a></li>
+              </ul>
+            </li>
 
-        <li class="dropdown">
-          <a href={l('services')} class="nav-link dropdown-toggle">{t('nav.services')} ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href={l('services#real-estate')}>Real Estate</a></li>
-            <li><a href={l('services#construction')}>Construction & Thekka</a></li>
-            <li><a href={l('services#design')}>2D/3D Design</a></li>
-            <li><a href={l('services#plotting')}>Plotting Services</a></li>
-            <li><a href={l('services#maintenance')}>Plumbing & Maintenance</a></li>
-          </ul>
-        </li>
+            <li class="relative group/dropdown">
+              <a href={l('services')} class="text-white font-semibold text-base p-2 hover:text-secondary transition-colors cursor-pointer group-hover/dropdown:text-secondary inline-flex items-center gap-1">
+                  {t('nav.services')} ▾
+              </a>
+              <ul class="absolute top-full left-0 bg-white min-w-[220px] shadow-md rounded-lg hidden flex-col py-2 z-[1001] group-hover/dropdown:flex md:group-hover/dropdown:flex text-left">
+                <li><a href={l('services#real-estate')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">Real Estate</a></li>
+                <li><a href={l('services#construction')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">Construction & Thekka</a></li>
+                <li><a href={l('services#design')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">2D/3D Design</a></li>
+                <li><a href={l('services#plotting')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">Plotting Services</a></li>
+                <li><a href={l('services#maintenance')} class="text-text px-4 py-3 block hover:bg-light-gray hover:text-primary transition-colors">Plumbing & Maintenance</a></li>
+              </ul>
+            </li>
 
-        <li><a href={l('projects')} class="nav-link">{t('nav.projects')}</a></li>
-        <li><a href={l('contact')} class="nav-link">{t('nav.contact')}</a></li>
-      </ul>
-      <div class="mobile-controls">
-          <LanguagePicker />
-          <ThemeToggle />
+            <li><a href={l('projects')} class="text-white font-semibold text-base p-2 hover:text-secondary transition-colors">{t('nav.projects')}</a></li>
+            <li><a href={l('contact')} class="text-white font-semibold text-base p-2 hover:text-secondary transition-colors">{t('nav.contact')}</a></li>
+          </ul>
+          
+          <div class="flex md:hidden items-center gap-4 mt-4">
+              <LanguagePicker />
+              <ThemeToggle />
+          </div>
       </div>
     </nav>
     
-    <div class="desktop-controls">
+    <div class="hidden md:flex items-center gap-4 ml-4">
         <LanguagePicker />
         <ThemeToggle />
     </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <button class="md:hidden bg-transparent border-none cursor-pointer block" id="hamburger" aria-label="Toggle Menu">
+      <span class="bar block w-[25px] h-[3px] my-[5px] mx-auto bg-white transition-all duration-300"></span>
+      <span class="bar block w-[25px] h-[3px] my-[5px] mx-auto bg-white transition-all duration-300"></span>
+      <span class="bar block w-[25px] h-[3px] my-[5px] mx-auto bg-white transition-all duration-300"></span>
     </button>
   </div>
 </header>
 
-<style>
-  .header {
-    background-color: var(--color-header-bg);
-    color: var(--color-header-text);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
-  }
-
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .desktop-controls {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-left: 1rem;
-  }
-
-  .mobile-controls {
-      display: none;
-      margin-top: 1rem;
-      align-items: center;
-      gap: 1rem;
-      justify-content: center;
-  }
-
-  .logo-text {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-white);
-  }
-
-  .nav-list {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-link {
-    color: var(--color-white);
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
-
-  .nav-link:hover {
-    color: var(--color-secondary);
-  }
-
-  /* Dropdown Styles */
-  .dropdown {
-    position: relative;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--color-white);
-    min-width: 220px;
-    box-shadow: var(--shadow-md);
-    border-radius: var(--border-radius);
-    display: none;
-    flex-direction: column;
-    padding: 0.5rem 0;
-    z-index: 1001;
-  }
-
-  .dropdown-menu li a {
-    color: var(--color-text);
-    padding: 0.75rem 1rem;
-    display: block;
-    transition: background-color 0.2s;
-  }
-
-  .dropdown-menu li a:hover {
-    background-color: var(--color-light-gray);
-    color: var(--color-primary);
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-  }
-
-  /* Hamburger */
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--color-white);
-    transition: all 0.3s ease-in-out;
-  }
-
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
-
-    .nav-menu {
-      position: fixed;
-      left: -100%;
-      top: var(--header-height);
-      gap: 0;
-      flex-direction: column;
-      background-color: var(--color-primary);
-      width: 100%;
-      height: calc(100vh - var(--header-height));
-      text-align: center;
-      transition: 0.3s;
-      padding-top: 2rem;
-    }
-
-    .nav-menu.active {
-      left: 0;
-    }
-
-    .nav-list {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .desktop-controls {
-        display: none;
-    }
-
-    .mobile-controls {
-        display: flex;
-    }
-    
-    .dropdown-menu {
-      position: static;
-      background-color: rgba(255,255,255,0.1);
-      box-shadow: none;
-      color: white;
-      min-width: 100%;
-      display: none; /* JS toggle needed for click on mobile, or simple hover if supported */
-    }
-
-    .dropdown-menu li a {
-        color: white;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: flex;
-    }
-  }
-</style>
-
 <script>
   const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
+  const navContainer = document.querySelector('.nav-list-container');
 
-  if (hamburger && navMenu) {
+  if (hamburger && navContainer) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
+      navContainer.classList.toggle('!left-0'); // Use Tailwind-compatible toggle class or custom style
+      
+      // Toggle hamburger animation
+      const bars = hamburger.querySelectorAll('.bar');
+      if (hamburger.classList.contains('active')) {
+          // Simple cross animation manually or via classes if preferred
+          // For now just toggle visibility logic
+      }
     });
   }
 </script>

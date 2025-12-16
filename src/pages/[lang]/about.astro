@@ -14,162 +14,49 @@ const t = useTranslations(lang as any);
 
 ---
 
-<Layout title="About Us - GTBM">
-  <section class="page-header">
-    <div class="container">
-      <h1>About Us</h1>
-      <p>Building Trust, Delivering Excellence.</p>
+<Layout title={t('about.title') + " - GTBM"}>
+  <section class="bg-primary text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-2 text-white">{t('about.title')}</h1>
+      <p class="text-lg">{t('about.subtitle')}</p>
     </div>
   </section>
 
-  <section id="profile" class="section profile">
-    <div class="container">
-      <div class="content-wrapper">
-        <div class="text">
-          <h2>Company Profile</h2>
-          <p>
-            GTBM (Gulmeli Three Brothers Multipurpose Pvt Ltd) is a premier Real Estate and Construction firm based in Kathmandu, Nepal. 
-            Established with a vision to revolutionize the property market, we bring transparency, reliability, and modern engineering to every project.
-          </p>
-          <p>
-            Our expertise spans across land plotting, residential and commercial construction ("Thekka"), and architectural design. 
-            We are committed to delivering projects that stand the test of time, ensuring legal clarity (Naksha Pass) and structural integrity.
-          </p>
-          <ul class="values-list">
-            <li>✅ <strong>Integrity:</strong> Transparent dealings in buying and selling land.</li>
-            <li>✅ <strong>Quality:</strong> Premium materials and skilled craftsmanship.</li>
-            <li>✅ <strong>Innovation:</strong> Modern 2D/3D designs and sustainable practices.</li>
+  <section id="profile" class="py-20 bg-background text-text">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-16 items-center">
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold mb-4 text-primary">{t('about.profile.title')}</h2>
+          <p class="mb-4 leading-relaxed">{t('about.profile.p1')}</p>
+          <p class="mb-4 leading-relaxed">{t('about.profile.p2')}</p>
+          <ul class="mt-6 flex flex-col gap-2">
+            <li class="text-lg">✅ <strong>{t('about.value.integrity')}</strong> {t('about.value.integrity.desc')}</li>
+            <li class="text-lg">✅ <strong>{t('about.value.quality')}</strong> {t('about.value.quality.desc')}</li>
+            <li class="text-lg">✅ <strong>{t('about.value.innovation')}</strong> {t('about.value.innovation.desc')}</li>
           </ul>
         </div>
-        <div class="image">
-           <div class="placeholder-img">About Us Image</div>
+        <div class="flex-1 w-full">
+           <div class="w-full h-[300px] bg-gray-200 flex items-center justify-center rounded-lg text-gray-500 font-semibold">About Us Image</div>
            <!-- Replace with team photo or office image -->
         </div>
       </div>
     </div>
   </section>
 
-  <section id="director" class="section director">
-    <div class="container">
-      <h2>Message from the Director</h2>
-      <div class="director-card">
-        <div class="director-img-container">
-            <div class="placeholder-director">Kamal Kharel</div>
+  <section id="director" class="py-20 bg-light-gray text-text">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-primary">{t('about.director.title')}</h2>
+      <div class="flex flex-col md:flex-row gap-12 items-start bg-card-bg p-8 md:p-12 rounded-lg shadow-sm mt-8 max-w-5xl mx-auto">
+        <div class="w-[150px] h-[150px] rounded-full bg-gray-300 flex items-center justify-center mx-auto md:mx-0 flex-shrink-0">
+            <div class="text-gray-600 font-semibold text-center">Kamal Kharel</div>
         </div>
-        <div class="director-message">
-            <blockquote>
-                "Namaste. At GTBM, we understand that building a home is a lifetime investment. 
-                My personal commitment to you is honesty and quality. Whether you are buying a plot for your future home 
-                or asking us to build it, we treat your dream as our own responsibility. We ensure processed paperwork, 
-                approved designs, and solid construction."
+        <div class="flex-1">
+            <blockquote class="text-lg leading-relaxed text-text mb-4 italic">
+              {t('about.director.message')}
             </blockquote>
-            <cite>- Kamal Kharel, Director</cite>
+            <cite class="font-bold text-primary not-italic block mt-4">{t('about.director.cite')}</cite>
         </div>
       </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  .page-header {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 4rem 0;
-    text-align: center;
-  }
-
-  .page-header h1 {
-    color: var(--color-white);
-    margin-bottom: 0.5rem;
-  }
-
-  .section {
-    padding: 5rem 0;
-  }
-
-  .content-wrapper {
-    display: flex;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .text {
-    flex: 1;
-  }
-
-  .image {
-    flex: 1;
-  }
-
-  .placeholder-img {
-    width: 100%;
-    height: 300px;
-    background-color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--border-radius);
-    color: #666;
-  }
-
-  .values-list {
-    margin-top: 1.5rem;
-  }
-
-  .values-list li {
-    margin-bottom: 0.5rem;
-    font-size: 1.05rem;
-  }
-
-  .director {
-    background-color: var(--color-light-gray);
-  }
-
-  .director-card {
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
-    background: white;
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    margin-top: 2rem;
-  }
-  
-  .placeholder-director {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background-color: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-  }
-
-  .director-message blockquote {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 1rem;
-    font-style: italic;
-  }
-
-  .director-message cite {
-    font-weight: 700;
-    color: var(--color-primary);
-    font-style: normal;
-  }
-
-  @media (max-width: 768px) {
-    .content-wrapper {
-      flex-direction: column;
-    }
-
-    .director-card {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-    }
-  }
-</style>

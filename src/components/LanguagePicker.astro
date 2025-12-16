@@ -19,56 +19,8 @@ function getLocalizedPath(language: string) {
 }
 ---
 
-<div class="language-switch">
-  <a href={getLocalizedPath('en')} class:list={["lang-option", { active: !isNepali }]}>EN</a>
-  <span class="switch-divider">|</span>
-  <a href={getLocalizedPath('ne')} class:list={["lang-option", { active: isNepali }]}>ने</a>
+<div class="flex items-center gap-1 bg-white/10 px-2.5 py-1.5 rounded-[20px] text-[0.85rem] font-semibold dark:bg-white/5">
+  <a href={getLocalizedPath('en')} class:list={["text-white/60 px-1.5 py-[0.2rem] rounded transition-all duration-200 hover:text-white decoration-none dark:text-white/50", { "!text-white bg-white/20 dark:bg-white/15": !isNepali }]}>EN</a>
+  <span class="text-white/30">|</span>
+  <a href={getLocalizedPath('ne')} class:list={["text-white/60 px-1.5 py-[0.2rem] rounded transition-all duration-200 hover:text-white decoration-none dark:text-white/50", { "!text-white bg-white/20 dark:bg-white/15": isNepali }]}>ने</a>
 </div>
-
-<style>
-  .language-switch {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.35rem 0.6rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-  }
-
-  .lang-option {
-    color: rgba(255, 255, 255, 0.6);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    text-decoration: none;
-  }
-
-  .lang-option:hover {
-    color: var(--color-white);
-  }
-
-  .lang-option.active {
-    color: var(--color-white);
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-
-  .switch-divider {
-    color: rgba(255, 255, 255, 0.3);
-  }
-
-  /* Dark mode adjustments */
-  :global([data-theme="dark"]) .language-switch {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-
-  :global([data-theme="dark"]) .lang-option {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  :global([data-theme="dark"]) .lang-option.active {
-    color: var(--color-white);
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-</style>

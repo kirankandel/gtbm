@@ -17,7 +17,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -33,6 +33,7 @@ const lang = getLangFromUrl(Astro.url);
 		<title>{title}</title>
 
         <script is:inline>
+            // Theme script remains same
             const theme = (() => {
                 if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
                     return localStorage.getItem('theme');
@@ -52,7 +53,7 @@ const lang = getLangFromUrl(Astro.url);
             window.localStorage.setItem('theme', theme);
         </script>
 	</head>
-	<body>
+	<body class="bg-background text-text antialiased min-h-screen flex flex-col font-body leading-relaxed">
         <Header lang={lang} />
 		<slot />
         <Footer lang={lang} />
