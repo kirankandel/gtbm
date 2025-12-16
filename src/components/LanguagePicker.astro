@@ -4,15 +4,14 @@ import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const currentUrl = Astro.url.pathname;
+const isNepali = lang === 'ne';
 
 function getLocalizedPath(language: string) {
-  // If we are already on the localized path, replace the locale segment
   const segments = currentUrl.split('/').filter(Boolean);
   
   if (segments.length > 0 && segments[0] in languages) {
     segments[0] = language;
   } else {
-    // If not (e.g. root or some other path), prepend the language
     segments.unshift(language);
   }
   
@@ -20,24 +19,56 @@ function getLocalizedPath(language: string) {
 }
 ---
 
-<div class="language-picker">
-  <select onchange="window.location.href=this.value">
-    {Object.entries(languages).map(([key, label]) => (
-      <option value={getLocalizedPath(key)} selected={key === lang}>
-        {label === 'English' ? '🇺🇸 English' : '🇳🇵 नेपाली'}
-      </option>
-    ))}
-  </select>
+<div class="language-switch">
+  <a href={getLocalizedPath('en')} class:list={["lang-option", { active: !isNepali }]}>EN</a>
+  <span class="switch-divider">|</span>
+  <a href={getLocalizedPath('ne')} class:list={["lang-option", { active: isNepali }]}>ने</a>
 </div>
 
 <style>
-  .language-picker select {
-    padding: 0.5rem;
-    border-radius: var(--border-radius);
-    border: 1px solid #ccc;
-    background-color: var(--color-white);
-    color: var(--color-text);
-    cursor: pointer;
-    font-size: 0.9rem;
+  .language-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.35rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .lang-option {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .lang-option:hover {
+    color: var(--color-white);
+  }
+
+  .lang-option.active {
+    color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .switch-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Dark mode adjustments */
+  :global([data-theme="dark"]) .language-switch {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  :global([data-theme="dark"]) .lang-option {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  :global([data-theme="dark"]) .lang-option.active {
+    color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.15);
   }
 </style>

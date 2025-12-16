@@ -13,7 +13,16 @@
   /* Dark Slate */
   --color-text-light: #666666;
   --color-white: #FFFFFF;
+  --color-card-bg: #FFFFFF;
+  /* Card backgrounds */
   --color-light-gray: #f4f4f4;
+  --color-border: #e0e0e0;
+
+  /* Header/Footer specific */
+  --color-header-bg: #005696;
+  --color-header-text: #FFFFFF;
+  --color-footer-bg: #005696;
+  --color-footer-text: #FFFFFF;
 
   /* Typography */
   --font-heading: 'Poppins', sans-serif;
@@ -32,25 +41,37 @@
 }
 
 [data-theme="dark"] {
-  --color-primary: #4da3ff;
-  /* Lighter Blue for dark mode */
-  --color-secondary: #ffc107;
-  /* Lighter Gold/Amber */
-  --color-accent: #3cb371;
-  /* Medium Sea Green */
-  --color-background: #121212;
-  /* Dark Background */
-  --color-text: #e0e0e0;
-  /* Light Text */
-  --color-text-light: #aaa;
-  --color-white: #1e1e1e;
-  /* Re-map 'white' to dark grey for card backgrounds */
-  --color-light-gray: #1e1e1e;
-  /* Darker grey for sections */
+  /* Professional Dark Mode Palette */
+  --color-primary: #64B5F6;
+  /* Soft Blue */
+  --color-secondary: #FFD54F;
+  /* Muted Gold */
+  --color-accent: #66BB6A;
+  /* Soft Green */
+  --color-background: #0d1117;
+  /* GitHub-style dark */
+  --color-text: #c9d1d9;
+  /* Light grey text */
+  --color-text-light: #8b949e;
+  --color-white: #FFFFFF;
+  /* Keep white as white for button text */
+  --color-card-bg: #161b22;
+  /* Card backgrounds */
+  --color-light-gray: #21262d;
+  /* Section backgrounds */
+  --color-border: #30363d;
 
-  --shadow-sm: 0 1px 3px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(255, 255, 255, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  /* Header/Footer in dark mode - slightly lighter than background */
+  --color-header-bg: #161b22;
+  --color-header-text: #c9d1d9;
+  --color-footer-bg: #161b22;
+  --color-footer-text: #c9d1d9;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
+
 
 /* Base Styles */
 * {
