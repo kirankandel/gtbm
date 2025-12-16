@@ -30,9 +30,9 @@ const t = useTranslations(lang as any);
           <p class="mb-4 leading-relaxed">{t('about.profile.p1')}</p>
           <p class="mb-4 leading-relaxed">{t('about.profile.p2')}</p>
           <ul class="mt-6 flex flex-col gap-2">
-            <li class="text-lg">✅ <strong>{t('about.value.integrity')}</strong> {t('about.value.integrity.desc')}</li>
-            <li class="text-lg">✅ <strong>{t('about.value.quality')}</strong> {t('about.value.quality.desc')}</li>
-            <li class="text-lg">✅ <strong>{t('about.value.innovation')}</strong> {t('about.value.innovation.desc')}</li>
+            <li class="text-lg"><strong>{t('about.value.integrity')}</strong> {t('about.value.integrity.desc')}</li>
+            <li class="text-lg"><strong>{t('about.value.quality')}</strong> {t('about.value.quality.desc')}</li>
+            <li class="text-lg"><strong>{t('about.value.innovation')}</strong> {t('about.value.innovation.desc')}</li>
           </ul>
         </div>
         <div class="flex-1 w-full">
@@ -47,9 +47,7 @@ const t = useTranslations(lang as any);
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8 text-primary">{t('about.director.title')}</h2>
       <div class="flex flex-col md:flex-row gap-12 items-start bg-card-bg p-8 md:p-12 rounded-lg shadow-sm mt-8 max-w-5xl mx-auto">
-        <div class="w-[150px] h-[150px] rounded-full bg-gray-300 flex items-center justify-center mx-auto md:mx-0 flex-shrink-0">
-            <div class="text-gray-600 font-semibold text-center">Kamal Kharel</div>
-        </div>
+<img src="/images/director.jpeg" alt="Kamal Kharel" class="w-[150px] h-[150px] rounded-full object-cover shadow-md mx-auto md:mx-0 flex-shrink-0" />
         <div class="flex-1">
             <blockquote class="text-lg leading-relaxed text-text mb-4 italic">
               {t('about.director.message')}
