@@ -1,0 +1,68 @@
+---
+---
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+  <span class="icon sun">☀️</span>
+  <span class="icon moon">🌙</span>
+</button>
+
+<style>
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* When dark mode is active, show Sun, hide Moon */
+  :global([data-theme="dark"]) .icon.moon {
+    display: none;
+  }
+  :global([data-theme="dark"]) .icon.sun {
+    display: block;
+  }
+
+  /* When light mode (default), show Moon, hide Sun */
+  :global(:root:not([data-theme="dark"])) .icon.sun {
+    display: none;
+  }
+  :global(:root:not([data-theme="dark"])) .icon.moon {
+    display: block;
+  }
+  
+  /* Icon adjustments */
+  .icon {
+      filter: grayscale(100%);
+  }
+  
+  :global([data-theme="dark"]) .menu-toggle {
+       background-color: rgba(255,255,255,0.1);
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.theme-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const element = document.documentElement;
+      const isDark = element.hasAttribute('data-theme');
+      
+      if (isDark) {
+        element.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        element.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  });
+</script>

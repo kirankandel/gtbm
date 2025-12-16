@@ -31,6 +31,26 @@ const lang = getLangFromUrl(Astro.url);
 		<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 		
 		<title>{title}</title>
+
+        <script is:inline>
+            const theme = (() => {
+                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                    return localStorage.getItem('theme');
+                }
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    return 'dark';
+                }
+                return 'light';
+            })();
+        
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            
+            window.localStorage.setItem('theme', theme);
+        </script>
 	</head>
 	<body>
         <Header lang={lang} />

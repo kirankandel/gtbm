@@ -2,6 +2,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { useTranslations } from '../i18n/ui';
 import LanguagePicker from './LanguagePicker.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 const { lang = 'en' } = Astro.props; // Receive lang from Layout
 const t = useTranslations(lang);
@@ -47,13 +48,15 @@ function l(path: string) {
         <li><a href={l('projects')} class="nav-link">{t('nav.projects')}</a></li>
         <li><a href={l('contact')} class="nav-link">{t('nav.contact')}</a></li>
       </ul>
-      <div class="mobile-lang-picker">
+      <div class="mobile-controls">
           <LanguagePicker />
+          <ThemeToggle />
       </div>
     </nav>
     
-    <div class="desktop-lang-picker">
+    <div class="desktop-controls">
         <LanguagePicker />
+        <ThemeToggle />
     </div>
 
     <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -81,13 +84,19 @@ function l(path: string) {
     align-items: center;
   }
 
-  .desktop-lang-picker {
+  .desktop-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       margin-left: 1rem;
   }
 
-  .mobile-lang-picker {
+  .mobile-controls {
       display: none;
       margin-top: 1rem;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
   }
 
   .logo-text {
@@ -197,12 +206,12 @@ function l(path: string) {
       gap: 1.5rem;
     }
     
-    .desktop-lang-picker {
+    .desktop-controls {
         display: none;
     }
 
-    .mobile-lang-picker {
-        display: block;
+    .mobile-controls {
+        display: flex;
     }
     
     .dropdown-menu {
