@@ -1,0 +1,121 @@
+/* Global Variables */
+:root {
+  /* Color Palette */
+  --color-primary: #005696;       /* Gulmeli Blue */
+  --color-secondary: #DAA520;     /* Construction Gold */
+  --color-accent: #2E8B57;        /* Eco Green */
+  --color-background: #FFFFFF;    /* Clean White */
+  --color-text: #333333;          /* Dark Slate */
+  --color-text-light: #666666;
+  --color-white: #FFFFFF;
+  --color-light-gray: #f4f4f4;
+
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-nepali: 'Mukta', sans-serif;
+
+  /* Spacing & Layout */
+  --container-width: 1200px;
+  --header-height: 80px;
+  --border-radius: 8px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-weight: 700; font-size: 2.5rem; }
+h2 { font-weight: 600; font-size: 2rem; }
+h3 { font-weight: 600; font-size: 1.75rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: #00447a;
+  border-color: #00447a;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: 2px solid var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: #c5951d;
+  border-color: #c5951d;
+}
+
+/* Lang specific overrides */
+html[lang="ne"] {
+  font-family: var(--font-nepali);
+}

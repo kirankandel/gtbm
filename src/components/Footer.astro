@@ -1,0 +1,123 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '../i18n/ui';
+
+const currentYear = new Date().getFullYear();
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+function l(path: string) {
+    return getRelativeLocaleUrl(lang, path);
+}
+
+---
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-section about">
+      <h3>GTBM</h3>
+      <p>Gulmeli Three Brothers Multipurpose Pvt Ltd.</p>
+      <p>{t('footer.description')}</p>
+    </div>
+
+    <div class="footer-section links">
+      <h3>{t('footer.quicklinks')}</h3>
+      <ul>
+        <li><a href={l('')}>{t('nav.home')}</a></li>
+        <li><a href={l('about')}>{t('nav.about')}</a></li>
+        <li><a href={l('services')}>{t('nav.services')}</a></li>
+        <li><a href={l('projects')}>{t('nav.projects')}</a></li>
+        <li><a href={l('contact')}>{t('nav.contact')}</a></li>
+      </ul>
+    </div>
+
+
+    <div class="footer-section contact">
+      <h3>{t('footer.contact')}</h3>
+      <p>📍 New Baneshwor-10, Kathmandu</p>
+      <p>📞 <a href="tel:9851074241">9851074241</a></p>
+      <p>✉️ <a href="mailto:info@gtbm.com.np">info@gtbm.com.np</a></p>
+      
+      <div class="social-links">
+        <!-- Add social icons here if needed -->
+      </div>
+    </div>
+    
+    <div class="footer-section map">
+        <!-- Embedded Google Map for New Baneshwor -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.564539668486!2d85.3341!3d27.6915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a792044813%3A0x67399a9a0e663806!2sNew%20Baneshwor%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
+            width="100%" 
+            height="200" 
+            style="border:0; border-radius: 8px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} GTBM. {t('footer.rights')}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding-top: 3rem;
+    margin-top: auto;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-section h3 {
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .footer-section p {
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section ul li a {
+    color: #e0e0e0;
+  }
+
+  .footer-section ul li a:hover {
+    color: var(--color-secondary);
+  }
+  
+  .footer-section a {
+      color: #e0e0e0; 
+  }
+
+  .footer-bottom {
+    background-color: #00447a;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .map iframe {
+      display: block;
+      width: 100%;
+  }
+</style>

@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return [
+    {params: {lang: 'en'}},
+    {params: {lang: 'ne'}},
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+
+---
+
+<Layout title="Our Services - GTBM">
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>Expert Solutions for Real Estate, Construction, and Design.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    
+    <!-- Real Estate Section -->
+    <section id="real-estate" class="service-detail">
+      <div class="icon-box">🏠</div>
+      <div class="detail-content">
+        <h2>Real Estate (Buying/Selling/Rent)</h2>
+        <p>We facilitate secure and transparent property transactions across Kathmandu and Nepal.</p>
+        <ul>
+            <li>Land Plotting & Sales</li>
+            <li>House Buying & Selling</li>
+            <li>Commercial Space & House Rentals</li>
+            <li>Property Valuation</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Construction Section -->
+    <section id="construction" class="service-detail reverse">
+      <div class="icon-box">🏗️</div>
+      <div class="detail-content">
+        <h2>Construction & Contractor (Thekka)</h2>
+        <p>From foundation to finish, we handle your construction projects with professional "Thekka" services. We define clear contracts, timelines, and material quality (Grade A).</p>
+        <ul>
+            <li>Residential Home Construction</li>
+            <li>Commercial Building Construction</li>
+            <li>Renovation & Remodeling</li>
+            <li>Earthquake Resistant Structures</li>
+            <li>Structural Analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Design Section -->
+    <section id="design" class="service-detail">
+      <div class="icon-box">📐</div>
+      <div class="detail-content">
+        <h2>2D/3D Design & Naksha</h2>
+        <p>Visualize your dream before building it. Our architects provide detailed blueprints and realistic 3D renders.</p>
+        <ul>
+            <li>2D Floor Plans & Blueprints</li>
+            <li>3D Exterior & Interior Renders</li>
+            <li>Municipality Map Pass (Naksha Pass) Assistance</li>
+            <li>Vastu Consultation</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Plotting Section -->
+    <section id="plotting" class="service-detail reverse">
+      <div class="icon-box">📍</div>
+      <div class="detail-content">
+        <h2>Plotting Services</h2>
+        <p>We transform raw land into improved residential colonies with proper road access, drainage, and utilities.</p>
+        <ul>
+            <li>Land Development</li>
+            <li>Road Opening & Black Topping</li>
+            <li>Compound Fencing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Maintenance Section -->
+    <section id="maintenance" class="service-detail">
+      <div class="icon-box">🔧</div>
+      <div class="detail-content">
+        <h2>Plumbing & Maintenance</h2>
+        <p>Complete home care solutions to keep your property in top condition.</p>
+        <ul>
+            <li>Professional Plumbing Services</li>
+            <li>Electrical Maintenance</li>
+            <li>Painting & Finishing</li>
+            <li>Waterproofing</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-detail {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .service-detail:last-child {
+    border-bottom: none;
+  }
+
+  .service-detail.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .icon-box {
+    font-size: 5rem;
+    background-color: var(--color-light-gray);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    color: var(--color-secondary);
+  }
+
+  .detail-content h2 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .detail-content ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .detail-content li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .service-detail, .service-detail.reverse {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .detail-content ul {
+      text-align: left;
+      display: inline-block;
+    }
+  }
+</style>

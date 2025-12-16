@@ -1,0 +1,43 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const currentUrl = Astro.url.pathname;
+
+function getLocalizedPath(language: string) {
+  // If we are already on the localized path, replace the locale segment
+  const segments = currentUrl.split('/').filter(Boolean);
+  
+  if (segments.length > 0 && segments[0] in languages) {
+    segments[0] = language;
+  } else {
+    // If not (e.g. root or some other path), prepend the language
+    segments.unshift(language);
+  }
+  
+  return `/${segments.join('/')}`;
+}
+---
+
+<div class="language-picker">
+  <select onchange="window.location.href=this.value">
+    {Object.entries(languages).map(([key, label]) => (
+      <option value={getLocalizedPath(key)} selected={key === lang}>
+        {label === 'English' ? '🇺🇸 English' : '🇳🇵 नेपाली'}
+      </option>
+    ))}
+  </select>
+</div>
+
+<style>
+  .language-picker select {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    background-color: var(--color-white);
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+</style>

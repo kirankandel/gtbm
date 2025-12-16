@@ -1,0 +1,43 @@
+---
+import { useTranslations } from '../i18n/ui';
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<div class="mobile-sticky-bar">
+    <a href="tel:9851074241" class="call-btn">
+        📞 {t('nav.callnow')}
+    </a>
+</div>
+
+<style>
+    .mobile-sticky-bar {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 2000;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .call-btn {
+        display: block;
+        background-color: var(--color-secondary);
+        color: var(--color-white);
+        font-weight: 700;
+        padding: 12px;
+        border-radius: var(--border-radius);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-sticky-bar {
+            display: block;
+        }
+    }
+</style>

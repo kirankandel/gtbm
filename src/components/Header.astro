@@ -1,0 +1,237 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '../i18n/ui';
+import LanguagePicker from './LanguagePicker.astro';
+
+const { lang = 'en' } = Astro.props; // Receive lang from Layout
+const t = useTranslations(lang);
+
+// Helper for links
+function l(path: string) {
+    return getRelativeLocaleUrl(lang, path);
+}
+
+---
+
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">
+      <a href="/">
+        <span class="logo-text">GTBM</span>
+      </a>
+    </div>
+
+    <nav class="nav-menu" id="nav-menu">
+      <ul class="nav-list">
+        <li><a href={l('')} class="nav-link">{t('nav.home')}</a></li>
+        
+        <li class="dropdown">
+          <a href={l('about')} class="nav-link dropdown-toggle">{t('nav.about')} ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href={l('about#profile')}>Company Profile</a></li>
+            <li><a href={l('about#director')}>Message from Director</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href={l('services')} class="nav-link dropdown-toggle">{t('nav.services')} ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href={l('services#real-estate')}>Real Estate</a></li>
+            <li><a href={l('services#construction')}>Construction & Thekka</a></li>
+            <li><a href={l('services#design')}>2D/3D Design</a></li>
+            <li><a href={l('services#plotting')}>Plotting Services</a></li>
+            <li><a href={l('services#maintenance')}>Plumbing & Maintenance</a></li>
+          </ul>
+        </li>
+
+        <li><a href={l('projects')} class="nav-link">{t('nav.projects')}</a></li>
+        <li><a href={l('contact')} class="nav-link">{t('nav.contact')}</a></li>
+      </ul>
+      <div class="mobile-lang-picker">
+          <LanguagePicker />
+      </div>
+    </nav>
+    
+    <div class="desktop-lang-picker">
+        <LanguagePicker />
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktop-lang-picker {
+      margin-left: 1rem;
+  }
+
+  .mobile-lang-picker {
+      display: none;
+      margin-top: 1rem;
+  }
+
+  .logo-text {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .nav-link:hover {
+    color: var(--color-secondary);
+  }
+
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-white);
+    min-width: 220px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius);
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    z-index: 1001;
+  }
+
+  .dropdown-menu li a {
+    color: var(--color-text);
+    padding: 0.75rem 1rem;
+    display: block;
+    transition: background-color 0.2s;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: var(--color-light-gray);
+    color: var(--color-primary);
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-white);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: var(--header-height);
+      gap: 0;
+      flex-direction: column;
+      background-color: var(--color-primary);
+      width: 100%;
+      height: calc(100vh - var(--header-height));
+      text-align: center;
+      transition: 0.3s;
+      padding-top: 2rem;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .desktop-lang-picker {
+        display: none;
+    }
+
+    .mobile-lang-picker {
+        display: block;
+    }
+    
+    .dropdown-menu {
+      position: static;
+      background-color: rgba(255,255,255,0.1);
+      box-shadow: none;
+      color: white;
+      min-width: 100%;
+      display: none; /* JS toggle needed for click on mobile, or simple hover if supported */
+    }
+
+    .dropdown-menu li a {
+        color: white;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: flex;
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  }
+</script>
