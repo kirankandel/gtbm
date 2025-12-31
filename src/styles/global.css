@@ -1,44 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  /* Color Palette */
-  --color-primary: #005696;
-  /* Gulmeli Blue */
-  --color-secondary: #DAA520;
-  /* Construction Gold */
-  --color-accent: #2E8B57;
-  /* Eco Green */
-  --color-background: #FFFFFF;
-  /* Clean White */
-  --color-text: #333333;
-  /* Dark Slate */
-  --color-text-light: #666666;
+  /* Color Palette - Refined */
+  --color-primary: #0F4C81; /* Classic Blue */
+  --color-primary-dark: #0A355C;
+  --color-secondary: #E5B45C; /* Elegant Gold */
+  --color-accent: #2A9D8F; /* Modern Teal */
+  
+  --color-background: #F8FAFC; /* Slate-50 */
+  --color-text: #1E293B; /* Slate-800 */
+  --color-text-light: #64748B; /* Slate-500 */
+  
   --color-white: #FFFFFF;
   --color-card-bg: #FFFFFF;
-  /* Card backgrounds */
-  --color-light-gray: #f4f4f4;
-  --color-border: #e0e0e0;
+  --color-light-gray: #F1F5F9; /* Slate-100 */
+  --color-border: #E2E8F0; /* Slate-200 */
 
   /* Header/Footer specific */
-  --color-header-bg: #005696;
+  --color-header-bg: #0F4C81;
   --color-header-text: #FFFFFF;
-  --color-footer-bg: #005696;
-  --color-footer-text: #FFFFFF;
+  --color-footer-bg: #0A355C;
+  --color-footer-text: #F8FAFC;
 
   /* Typography */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-nepali: 'Mukta', sans-serif;
 
   /* Spacing & Layout */
-  --container-width: 1200px;
+  --container-width: 1280px; /* Wider container */
   --header-height: 80px;
-  --border-radius: 8px;
+  --border-radius: 12px; /* More rounded */
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* Shadows - Softer & Deeper */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 /* Dark Mode Overrides - mapped to data-theme="dark" */
@@ -46,34 +44,24 @@
 
 @layer base {
   [data-theme="dark"] {
-    --color-primary: #64B5F6;
-    /* Soft Blue */
-    --color-secondary: #FFD54F;
-    /* Muted Gold */
-    --color-accent: #66BB6A;
-    /* Soft Green */
-    --color-background: #0d1117;
-    /* GitHub-style dark */
-    --color-text: #c9d1d9;
-    /* Light grey text */
-    --color-text-light: #8b949e;
+    --color-primary: #38BDF8; /* Sky 400 */
+    --color-primary-dark: #0EA5E9;
+    --color-secondary: #FBBF24; /* Amber 400 */
+    --color-accent: #34D399; /* Emerald 400 */
+
+    --color-background: #0F172A; /* Slate-900 */
+    --color-text: #F1F5F9; /* Slate-100 */
+    --color-text-light: #94A3B8; /* Slate-400 */
+    
     --color-white: #FFFFFF;
-    /* Keep white as white for button text */
-    --color-card-bg: #161b22;
-    /* Card backgrounds */
-    --color-light-gray: #21262d;
-    /* Section backgrounds */
-    --color-border: #30363d;
+    --color-card-bg: #1E293B; /* Slate-800 */
+    --color-light-gray: #0F172A; /* Slate-950 */
+    --color-border: #334155; /* Slate-700 */
 
-    /* Header/Footer in dark mode */
-    --color-header-bg: #161b22;
-    --color-header-text: #c9d1d9;
-    --color-footer-bg: #161b22;
-    --color-footer-text: #c9d1d9;
-
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --color-header-bg: #1E293B;
+    --color-header-text: #F1F5F9;
+    --color-footer-bg: #020617;
+    --color-footer-text: #94A3B8;
   }
 
   html {
@@ -81,6 +69,45 @@
     color: var(--color-text);
     background-color: var(--color-background);
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.02em;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .glass-card {
+      @apply bg-card-bg/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .btn {
+      @apply inline-flex items-center justify-center transition-all duration-300 transform font-semibold;
+  }
+  
+  .btn:hover {
+      @apply scale-105 shadow-lg;
+  }
+  
+  .btn:active {
+      @apply scale-95;
   }
 }
