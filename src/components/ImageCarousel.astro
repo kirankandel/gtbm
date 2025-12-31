@@ -1,0 +1,139 @@
+---
+interface Props {
+  images: string[];
+  alt: string;
+}
+
+const { images, alt } = Astro.props;
+---
+
+<div class="carousel relative w-full h-[250px] overflow-hidden group">
+  <div class="carousel-inner flex transition-transform duration-500 ease-in-out h-full" style="width: 100%;">
+    {images.map((img, index) => (
+      <div class="carousel-item min-w-full h-full relative" data-index={index}>
+        <img src={img} alt={`${alt} - Image ${index + 1}`} class="w-full h-full object-cover" />
+      </div>
+    ))}
+  </div>
+
+  {images.length > 1 && (
+    <>
+      <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 focus:outline-none" aria-label="Previous image">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 focus:outline-none" aria-label="Next image">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+      
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+        {images.map((_, index) => (
+          <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-colors" data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
+        ))}
+      </div>
+    </>
+  )}
+</div>
+
+<script>
+  class Carousel {
+    container: HTMLElement;
+    inner: HTMLElement;
+    items: NodeListOf<Element>;
+    prevBtn: HTMLElement | null;
+    nextBtn: HTMLElement | null;
+    dots: NodeListOf<HTMLElement>;
+    currentIndex: number;
+    totalItems: number;
+
+    constructor(element: HTMLElement) {
+      this.container = element;
+      this.inner = element.querySelector('.carousel-inner') as HTMLElement;
+      this.items = element.querySelectorAll('.carousel-item');
+      this.prevBtn = element.querySelector('.carousel-prev');
+      this.nextBtn = element.querySelector('.carousel-next');
+      this.dots = element.querySelectorAll('.carousel-dot');
+      this.currentIndex = 0;
+      this.totalItems = this.items.length;
+
+      if (this.totalItems > 1) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.updateCarousel(); // Initial state
+
+      this.prevBtn?.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior if inside <a>
+        e.stopPropagation(); // Prevent bubbling to parent <a>
+        this.prev();
+      });
+
+      this.nextBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation(); 
+        this.next();
+      });
+
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.goTo(index);
+        });
+      });
+      
+      // Prevent clicks on dots/buttons from triggering parent link (double safety)
+       this.container.querySelectorAll('button').forEach(btn => {
+          btn.addEventListener('click', (e) => e.stopPropagation());
+       });
+    }
+
+    updateCarousel() {
+      const translateX = -(this.currentIndex * 100);
+      this.inner.style.transform = `translateX(${translateX}%)`;
+
+      this.dots.forEach((dot, index) => {
+        if (index === this.currentIndex) {
+          dot.classList.remove('bg-white/50');
+          dot.classList.add('bg-white', 'scale-125');
+        } else {
+          dot.classList.add('bg-white/50');
+          dot.classList.remove('bg-white', 'scale-125');
+        }
+      });
+    }
+
+    prev() {
+      this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
+      this.updateCarousel();
+    }
+
+    next() {
+      this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+      this.updateCarousel();
+    }
+
+    goTo(index: number) {
+      this.currentIndex = index;
+      this.updateCarousel();
+    }
+  }
+
+  // Initialize carousels
+  function initCarousels() {
+      document.querySelectorAll('.carousel').forEach(el => {
+          new Carousel(el as HTMLElement);
+      });
+  }
+
+  // Run on load
+  initCarousels();
+
+  // Run on view transitions if enabled (Astro default mostly, but good practice)
+  document.addEventListener('astro:page-load', initCarousels);
+</script>

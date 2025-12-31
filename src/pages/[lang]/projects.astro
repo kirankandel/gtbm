@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from '../../i18n/ui';
 
+import ImageCarousel from '../../components/ImageCarousel.astro';
+
 export function getStaticPaths() {
   return [
     {params: {lang: 'en'}},
@@ -17,43 +19,18 @@ function l(path: string) {
   return getRelativeLocaleUrl(lang, path);
 }
 
-
 const projects = [
   {
-    title: "Residential Land",
-    location: "Imadol, Lalitpur",
-    price: "NRs. 35 Lakhs/Aana",
-    size: "4 Aana",
-    road: "13 ft",
-    type: "Sale",
-    image: "https://placehold.co/600x400/005696/ffffff?text=Land+Imadol"
-  },
-  {
-    title: "Luxury House on Rent",
-    location: "Bhaisepati, Lalitpur",
-    price: "NRs. 1.2 Lakhs/Month",
-    size: "2.5 Storey, 10 Rooms",
-    road: "20 ft",
-    type: "Rent",
-    image: "https://placehold.co/600x400/DAA520/ffffff?text=House+Rent"
-  },
-  {
-    title: "Commercial Plot",
-    location: "New Baneshwor",
-    price: "Contact for Price",
-    size: "8 Aana",
-    road: "Main Road Access",
-    type: "Sale",
-    image: "https://placehold.co/600x400/2E8B57/ffffff?text=Commercial+Plot"
-  },
-  {
-    title: "Modern Bungalow Project",
-    location: "Budhanilkantha",
-    price: "NRs. 4.5 Cr",
-    size: "6 Aana",
-    road: "16 ft",
+    title: "Sankhamul Site",
+    location: "Sankhamul",
+    price: "Undisclosed",
+    size: "House Project",
+    road: "6 ft",
     type: "Construction",
-    image: "https://placehold.co/600x400/333333/ffffff?text=Bungalow+Project"
+    images: [
+        "/images/projects/site_sankhamul/site_sankhamul_1.jpeg",
+        "/images/projects/site_sankhamul/site_sankhamul_2.jpeg"
+    ]
   }
 ];
 ---
@@ -71,9 +48,9 @@ const projects = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div class="bg-card-bg rounded-lg shadow-sm overflow-hidden transition-all duration-300 border border-gray-100 hover:shadow-lg group">
-            <div class="relative h-[200px]">
-                <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
-                <span class="absolute top-2 right-2 bg-accent text-white px-3 py-1 rounded text-xs font-bold">{project.type}</span>
+            <div class="relative h-[250px]">
+                <ImageCarousel images={project.images} alt={project.title} />
+                <span class="absolute top-2 right-2 bg-accent text-white px-3 py-1 rounded text-xs font-bold z-10">{project.type}</span>
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>

@@ -21,14 +21,33 @@ function l(path: string) {
 
 <Layout title="GTBM - Building Dreams, Securing Futures">
   <!-- Hero Section -->
-  <section class="relative h-[80vh] min-h-[500px] bg-[url('/images/hero.png')] bg-cover bg-center flex items-center text-white">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#005696]/70 to-black/40"></div>
-    <div class="container mx-auto px-4 relative z-10 max-w-[800px] md:px-0">
-      <h1 class="text-4xl md:text-6xl mb-6 text-white leading-tight">{t('home.hero.title')}</h1>
-      <p class="text-xl mb-8 max-w-[600px]">{t('home.hero.subtitle')}</p>
-      <div class="flex flex-col md:flex-row gap-4">
-        <a href={l('services')} class="btn btn-primary bg-secondary text-white px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition-colors inline-block text-center">{t('home.hero.cta.services')}</a>
-        <a href={l('contact')} class="btn btn-secondary bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition-colors inline-block text-center">{t('home.hero.cta.contact')}</a>
+  <!-- Hero Section -->
+  <section class="relative py-20 lg:py-32 bg-background flex items-center overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+        <!-- Content -->
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-primary leading-tight">
+            <span class="block">{t('home.hero.title')}</span>
+          </h1>
+          <p class="text-xl text-text-light mb-8 max-w-[600px] mx-auto lg:mx-0 leading-relaxed">
+            {t('home.hero.subtitle')}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href={l('services')} class="btn btn-primary bg-secondary text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:bg-yellow-600 hover:-translate-y-1 transition-all inline-block text-center text-lg">{t('home.hero.cta.services')}</a>
+            <a href={l('contact')} class="btn btn-secondary bg-white border-2 border-primary text-primary px-8 py-4 rounded-lg font-bold hover:bg-primary hover:text-white hover:-translate-y-1 transition-all inline-block text-center text-lg shadow-sm">{t('home.hero.cta.contact')}</a>
+          </div>
+        </div>
+        
+        <!-- Vector Art -->
+        <div class="lg:w-1/2 relative">
+             <div class="absolute inset-0 bg-blue-50 rounded-full filter blur-3xl opacity-30 transform scale-110 -z-10"></div>
+             <img 
+              src="/images/hero-vector.jpg" 
+              alt="Construction and Architecture Vector Illustration" 
+              class="w-full h-auto max-w-[600px] mx-auto mix-blend-multiply animate-fade-in-up"
+            />
+        </div>
       </div>
     </div>
   </section>
