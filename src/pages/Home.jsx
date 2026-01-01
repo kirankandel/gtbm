@@ -10,14 +10,14 @@ const Home = () => {
                 <div className="container mx-auto text-center max-w-4xl">
                     <h1 className="text-4xl md:text-6xl font-bold font-heading text-primary mb-6 leading-tight">
                         Building Dreams, <br />
-                        <span className="text-secondary">Securing Futures</span>
+                        <span className="text-secondary">Securing Futures</span> in Kathmandu.
                     </h1>
                     <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                        Your trusted partner for construction, real estate, and property maintenance in Kathmandu.
+                        Your trusted partner for Real Estate, Construction, and 2D/3D Architecture.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="/projects" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors">
-                            View Projects <ArrowRight className="ml-2" size={20} />
+                            Our Services <ArrowRight className="ml-2" size={20} />
                         </a>
                         <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary border border-gray-200 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
                             Contact Us
