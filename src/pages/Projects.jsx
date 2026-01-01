@@ -1,59 +1,67 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Projects = () => {
+    const { t } = useLanguage();
+
     const projects = [
         {
             title: "Sankhamul Site",
-            location: "Sankhamul",
-            price: "Undisclosed",
+            location: "Sankhamul, Kathmandu",
+            price: "Call for Price",
             size: "House Project",
             road: "6 ft",
-            type: "Construction",
-            images: [], // Images would go here
+            type: t('projects.type.construction'),
+            image: "/images/projects/site_sankhamul/site_sankhamul_1.jpeg",
         }
     ];
 
     return (
         <React.Fragment>
-            <section className="bg-primary text-white py-16 text-center">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl font-bold mb-2 text-white">Projects & Listings</h1>
-                    <p className="text-lg">Explore our latest properties and completed construction projects.</p>
+            <section className="bg-primary text-white py-20 text-center bg-[url('/images/hero-vector.jpg')] bg-cover bg-center relative">
+                <div className="absolute inset-0 bg-primary/80 z-0"></div>
+                <div className="container mx-auto px-4 relative z-10">
+                    <h1 className="text-4xl font-bold mb-4 text-white">{t('projects.title')}</h1>
+                    <p className="text-xl opacity-90">{t('projects.subtitle')}</p>
                 </div>
             </section>
 
-            <section className="py-20 bg-background text-text">
+            <section className="py-20 bg-gray-50 text-text">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {projects.map((project, index) => (
-                            <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 border border-gray-100 hover:shadow-lg group">
-                                <div className="relative h-[250px] bg-gray-200 flex items-center justify-center text-gray-400">
-                                    [Project Image]
-                                    <span className="absolute top-2 right-2 bg-secondary text-white px-3 py-1 rounded text-xs font-bold z-10">{project.type}</span>
+                            <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+                                <div className="relative h-[250px] overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <span className="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold z-10 uppercase tracking-wide shadow-sm">{project.type}</span>
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
                                     <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">📍 {project.location}</p>
 
-                                    <div className="bg-header-bg p-4 rounded mb-6">
+                                    <div className="bg-gray-50 p-4 rounded mb-6">
                                         <div className="flex justify-between mb-1 last:mb-0 text-sm">
-                                            <span className="text-gray-600">Price:</span>
+                                            <span className="text-gray-600">{t('projects.label.price')}</span>
                                             <span className="font-semibold text-text">{project.price}</span>
                                         </div>
                                         <div className="flex justify-between mb-1 last:mb-0 text-sm">
-                                            <span className="text-gray-600">Size:</span>
+                                            <span className="text-gray-600">{t('projects.label.size')}</span>
                                             <span className="font-semibold text-text">{project.size}</span>
                                         </div>
                                         <div className="flex justify-between mb-1 last:mb-0 text-sm">
-                                            <span className="text-gray-600">Road:</span>
+                                            <span className="text-gray-600">{t('projects.label.road')}</span>
                                             <span className="font-semibold text-text">{project.road}</span>
                                         </div>
                                     </div>
 
                                     <Link to="/contact" className="block w-full text-center border-2 border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-white transition-colors">
-                                        Book a Site Visit
+                                        {t('projects.cta')}
                                     </Link>
                                 </div>
                             </div>

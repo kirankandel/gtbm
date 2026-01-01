@@ -1,14 +1,17 @@
 
 import React from 'react';
 import { Home, Building, PenTool, MapPin, Wrench } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
+    const { t } = useLanguage();
+
     return (
         <React.Fragment>
             <section className="bg-primary text-white py-16 text-center mb-16">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl font-bold mb-2 text-white">Our Services</h1>
-                    <p className="text-lg">Expert Solutions for Real Estate, Construction, and Design.</p>
+                    <h1 className="text-4xl font-bold mb-2 text-white">{t('services.title')}</h1>
+                    <p className="text-lg">{t('services.subtitle')}</p>
                 </div>
             </section>
 
@@ -19,13 +22,13 @@ const Services = () => {
                         <Home size={100} strokeWidth={1} />
                     </div>
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-primary mb-4">Real Estate (Buying/Selling/Rent)</h2>
-                        <p className="text-text mb-4 leading-relaxed">We facilitate secure and transparent property transactions across Kathmandu and Nepal.</p>
+                        <h2 className="text-2xl font-bold text-primary mb-4">{t('services.realestate.title')}</h2>
+                        <p className="text-text mb-4 leading-relaxed">{t('services.realestate.desc')}</p>
                         <ul className="list-disc pl-6 mt-4 marker:text-primary space-y-2">
-                            <li>Land Plotting & Sales</li>
-                            <li>House Buying & Selling</li>
-                            <li>Commercial Space & House Rentals</li>
-                            <li>Property Valuation</li>
+                            <li>{t('services.realestate.item1')}</li>
+                            <li>{t('services.realestate.item2')}</li>
+                            <li>{t('services.realestate.item3')}</li>
+                            <li>{t('services.realestate.item4')}</li>
                         </ul>
                     </div>
                 </section>
@@ -36,14 +39,14 @@ const Services = () => {
                         <Building size={100} strokeWidth={1} />
                     </div>
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-primary mb-4">Construction & Contractor (Thekka)</h2>
-                        <p className="text-text mb-4 leading-relaxed">From foundation to finish, we handle your construction projects with professional "Thekka" services. We define clear contracts, timelines, and material quality (Grade A).</p>
+                        <h2 className="text-2xl font-bold text-primary mb-4">{t('services.construction.title')}</h2>
+                        <p className="text-text mb-4 leading-relaxed">{t('services.construction.desc')}</p>
                         <ul className="list-disc pl-6 mt-4 marker:text-primary space-y-2">
-                            <li>Residential Home Construction</li>
-                            <li>Commercial Building Construction</li>
-                            <li>Renovation & Remodeling</li>
-                            <li>Earthquake Resistant Structures</li>
-                            <li>Structural Analysis</li>
+                            <li>{t('services.construction.item1')}</li>
+                            <li>{t('services.construction.item2')}</li>
+                            <li>{t('services.construction.item3')}</li>
+                            <li>{t('services.construction.item4')}</li>
+                            <li>{t('services.construction.item5')}</li>
                         </ul>
                     </div>
                 </section>
@@ -54,13 +57,13 @@ const Services = () => {
                         <PenTool size={100} strokeWidth={1} />
                     </div>
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-primary mb-4">2D/3D Design & Naksha</h2>
-                        <p className="text-text mb-4 leading-relaxed">Visualize your dream before building it. Our architects provide detailed blueprints and realistic 3D renders.</p>
+                        <h2 className="text-2xl font-bold text-primary mb-4">{t('services.design.title')}</h2>
+                        <p className="text-text mb-4 leading-relaxed">{t('services.design.desc')}</p>
                         <ul className="list-disc pl-6 mt-4 marker:text-primary space-y-2">
-                            <li>2D Floor Plans & Blueprints</li>
-                            <li>3D Exterior & Interior Renders</li>
-                            <li>Municipality Map Pass (Naksha Pass) Assistance</li>
-                            <li>Vastu Consultation</li>
+                            <li>{t('services.design.item1')}</li>
+                            <li>{t('services.design.item2')}</li>
+                            <li>{t('services.design.item3')}</li>
+                            <li>{t('services.design.item4')}</li>
                         </ul>
                     </div>
                 </section>
@@ -71,12 +74,12 @@ const Services = () => {
                         <MapPin size={100} strokeWidth={1} />
                     </div>
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-primary mb-4">Plotting Services</h2>
-                        <p className="text-text mb-4 leading-relaxed">We transform raw land into improved residential colonies with proper road access, drainage, and utilities.</p>
+                        <h2 className="text-2xl font-bold text-primary mb-4">{t('services.plotting.title')}</h2>
+                        <p className="text-text mb-4 leading-relaxed">{t('services.plotting.desc')}</p>
                         <ul className="list-disc pl-6 mt-4 marker:text-primary space-y-2">
-                            <li>Land Development</li>
-                            <li>Road Opening & Black Topping</li>
-                            <li>Compound Fencing</li>
+                            <li>{t('services.plotting.item1')}</li>
+                            <li>{t('services.plotting.item2')}</li>
+                            <li>{t('services.plotting.item3')}</li>
                         </ul>
                     </div>
                 </section>
@@ -87,13 +90,13 @@ const Services = () => {
                         <Wrench size={100} strokeWidth={1} />
                     </div>
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-primary mb-4">Plumbing & Maintenance</h2>
-                        <p className="text-text mb-4 leading-relaxed">Complete home care solutions to keep your property in top condition.</p>
+                        <h2 className="text-2xl font-bold text-primary mb-4">{t('services.maintenance.title')}</h2>
+                        <p className="text-text mb-4 leading-relaxed">{t('services.maintenance.desc')}</p>
                         <ul className="list-disc pl-6 mt-4 marker:text-primary space-y-2">
-                            <li>Professional Plumbing Services</li>
-                            <li>Electrical Maintenance</li>
-                            <li>Painting & Finishing</li>
-                            <li>Waterproofing</li>
+                            <li>{t('services.maintenance.item1')}</li>
+                            <li>{t('services.maintenance.item2')}</li>
+                            <li>{t('services.maintenance.item3')}</li>
+                            <li>{t('services.maintenance.item4')}</li>
                         </ul>
                     </div>
                 </section>

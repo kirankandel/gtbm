@@ -1,76 +1,97 @@
 
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
+import { Menu, X, Phone, Mail } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
+    const { t } = useLanguage();
 
-    const navigation = [
-        { name: 'Home', href: '/' },
-        { name: 'About Us', href: '/about' },
-        { name: 'Services', href: '/services' },
-        { name: 'Projects', href: '/projects' },
-        { name: 'Contact', href: '/contact' },
+    const toggleMenu = () => setIsOpen(!isOpen);
+
+    const navLinks = [
+        { name: t('nav.home'), path: '/' },
+        { name: t('nav.about'), path: '/about' },
+        { name: t('nav.services'), path: '/services' },
+        { name: t('nav.projects'), path: '/projects' },
+        { name: t('nav.contact'), path: '/contact' },
     ];
 
     return (
-        <header className="bg-white shadow-md sticky top-0 z-50">
-            <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center h-20">
+        <header className="bg-white shadow-md fixed w-full top-0 z-50">
+            {/* Top Bar */}
+            <div className="bg-primary text-white py-2 text-sm hidden md:block">
+                <div className="container mx-auto px-4 flex justify-between items-center">
+                    <div className="flex gap-6">
+                        <span className="flex items-center gap-2"><Phone size={14} /> +977 9851074241</span>
+                        <span className="flex items-center gap-2"><Mail size={14} /> info@gtbm.com.np</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav className="container mx-auto px-4 py-4">
+                <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center space-x-2">
-                        <span className="text-2xl font-bold text-primary font-heading">GTBM</span>
+                    <Link to="/" className="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+                        GTBM
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex space-x-8">
-                        {navigation.map((item) => (
-                            <Link
-                                key={item.name}
-                                to={item.href}
-                                className={`text-sm font-semibold transition-colors duration-200 ${location.pathname === item.href
-                                        ? 'text-primary'
-                                        : 'text-gray-600 hover:text-primary'
-                                    }`}
-                            >
-                                {item.name}
-                            </Link>
-                        ))}
-                    </nav>
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center gap-8">
+                        <ul className="flex gap-6 font-medium">
+                            {navLinks.map((link) => (
+                                <li key={link.name}>
+                                    <NavLink
+                                        to={link.path}
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "text-primary border-b-2 border-primary pb-1"
+                                                : "text-text hover:text-primary transition-colors"
+                                        }
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                        <LanguageSwitcher />
+                        <a href="tel:9851074241" className="bg-secondary text-white px-5 py-2 rounded font-bold hover:bg-orange-600 transition-colors">
+                            {t('nav.callnow')}
+                        </a>
+                    </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden p-2 text-gray-600 hover:text-primary transition-colors"
-                        onClick={() => setIsOpen(!isOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    {/* Mobile Menu Button & Language Switcher */}
+                    <div className="md:hidden flex items-center gap-4">
+                        <LanguageSwitcher />
+                        <button onClick={toggleMenu} className="text-primary focus:outline-none">
+                            {isOpen ? <X size={28} /> : <Menu size={28} />}
+                        </button>
+                    </div>
                 </div>
 
-                {/* Mobile Navigation */}
+                {/* Mobile Menu */}
                 {isOpen && (
-                    <nav className="md:hidden py-4 border-t border-gray-100 animate-fade-in">
-                        <div className="flex flex-col space-y-4">
-                            {navigation.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    to={item.href}
-                                    className={`text-base font-medium px-4 py-2 rounded-lg transition-colors ${location.pathname === item.href
-                                            ? 'bg-primary/5 text-primary'
-                                            : 'text-gray-600 hover:bg-gray-50'
-                                        }`}
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {item.name}
-                                </Link>
+                    <div className="md:hidden mt-4 bg-gray-50 p-4 rounded-lg shadow-inner">
+                        <ul className="flex flex-col gap-4 font-medium">
+                            {navLinks.map((link) => (
+                                <li key={link.name}>
+                                    <NavLink
+                                        to={link.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={({ isActive }) =>
+                                            isActive ? "text-primary block font-bold" : "text-text block"
+                                        }
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
                             ))}
-                        </div>
-                    </nav>
+                        </ul>
+                    </div>
                 )}
-            </div>
+            </nav>
         </header>
     );
 };
