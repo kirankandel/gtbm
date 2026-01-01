@@ -1,17 +1,23 @@
-
 import React from 'react';
-import { Home, Building, PenTool, MapPin, Wrench } from 'lucide-react';
+import { Building, Home, MapPin, PenTool, Wrench } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SeoHead from '../components/SeoHead';
+import ScrollReveal from '../components/ScrollReveal';
 
 const Services = () => {
     const { t } = useLanguage();
 
     return (
-        <React.Fragment>
-            <section className="bg-primary text-white py-16 text-center mb-16">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl font-bold mb-2 text-white">{t('services.title')}</h1>
-                    <p className="text-lg">{t('services.subtitle')}</p>
+        <div className="pt-20">
+            <SeoHead title={t('nav.services')} description={t('services.subtitle')} />
+
+            {/* Header */}
+            <section className="bg-primary text-white py-20">
+                <div className="container mx-auto px-4 text-center">
+                    <ScrollReveal width="100%">
+                        <h1 className="text-4xl font-bold font-heading mb-4">{t('services.title')}</h1>
+                        <p className="text-xl opacity-90">{t('services.subtitle')}</p>
+                    </ScrollReveal>
                 </div>
             </section>
 
@@ -101,7 +107,7 @@ const Services = () => {
                     </div>
                 </section>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 

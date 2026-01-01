@@ -1,17 +1,22 @@
-
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SeoHead from '../components/SeoHead';
+import ScrollReveal from '../components/ScrollReveal';
 
 const About = () => {
     const { t } = useLanguage();
 
     return (
-        <React.Fragment>
-            {/* Hero Section */}
-            <section className="bg-primary text-white py-16 text-center">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl font-bold mb-2 text-white">{t('about.title')}</h1>
-                    <p className="text-lg">{t('about.subtitle')}</p>
+        <div className="pt-20">
+            <SeoHead title={t('nav.about')} description={t('about.subtitle')} />
+
+            {/* Minimal Hero */}
+            <section className="bg-primary dark:bg-blue-900 text-white py-20 transition-colors duration-300">
+                <div className="container mx-auto px-4 text-center">
+                    <ScrollReveal width="100%">
+                        <h1 className="text-4xl font-bold font-heading mb-4">{t('about.title')}</h1>
+                        <p className="text-xl opacity-90">{t('about.subtitle')}</p>
+                    </ScrollReveal>
                 </div>
             </section>
 
@@ -59,7 +64,7 @@ const About = () => {
                     </div>
                 </div>
             </section>
-        </React.Fragment>
+        </div>
     );
 };
 

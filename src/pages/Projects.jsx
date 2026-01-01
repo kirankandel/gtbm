@@ -1,14 +1,14 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import SeoHead from '../components/SeoHead';
 
 const Projects = () => {
     const { t } = useLanguage();
 
     const projects = [
         {
-            title: "Sankhamul Site",
+            title: "Baneshwor Heights",
             location: "Sankhamul, Kathmandu",
             price: "Call for Price",
             size: "House Project",
@@ -19,11 +19,12 @@ const Projects = () => {
     ];
 
     return (
-        <React.Fragment>
-            <section className="bg-primary text-white py-20 text-center bg-[url('/images/hero-vector.jpg')] bg-cover bg-center relative">
-                <div className="absolute inset-0 bg-primary/80 z-0"></div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <h1 className="text-4xl font-bold mb-4 text-white">{t('projects.title')}</h1>
+        <div className="pt-20">
+            <SeoHead title={t('nav.projects')} description={t('projects.subtitle')} />
+
+            <section className="bg-primary text-white py-20">
+                <div className="container mx-auto px-4 text-center">
+                    <h1 className="text-4xl font-bold font-heading mb-4">{t('projects.title')}</h1>
                     <p className="text-xl opacity-90">{t('projects.subtitle')}</p>
                 </div>
             </section>
@@ -69,7 +70,7 @@ const Projects = () => {
                     </div>
                 </div>
             </section>
-        </React.Fragment>
+        </div>
     );
 };
 

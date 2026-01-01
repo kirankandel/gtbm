@@ -15,6 +15,9 @@ export const translations = {
         'footer.contact': 'Contact Us',
         'footer.rights': 'All rights reserved.',
         'footer.companyName': 'Gulmeli Three Brothers Multipurpose Pvt Ltd.',
+        'stats.experience': 'Years Experience',
+        'stats.projects': 'Projects Completed',
+        'stats.clients': 'Happy Clients',
 
         // Home Page
         'home.hero.title': 'Building Dreams,',
@@ -136,11 +139,14 @@ export const translations = {
         'footer.contact': 'हामीलाई सम्पर्क गर्नुहोस्',
         'footer.rights': 'सर्वाधिकार सुरक्षित।',
         'footer.companyName': 'गुल्मेली थ्री ब्रदर्स मल्टिपर्पज प्रा.लि.',
+        'stats.experience': 'वर्षको अनुभव',
+        'stats.projects': 'सम्पन्न परियोजनाहरू',
+        'stats.clients': 'सन्तुष्ट ग्राहकहरू',
 
         // Home Page
-        'home.hero.title': 'काठमाडौँमा सपनाहरू निर्माण गर्दै,',
+        'home.hero.title': 'सपनाहरू निर्माण गर्दै,',
         'home.hero.title.highlight': 'भविष्य सुरक्षित गर्दै',
-        'home.hero.title.suffix': '',
+        'home.hero.title.suffix': 'काठमाडौँमा।',
         'home.hero.subtitle': 'रियल इस्टेट, निर्माण, र 2D/3D वास्तुकलाको लागि तपाईंको विश्वसनीय साझेदार।',
         'home.hero.cta.services': 'हाम्रा सेवाहरू',
         'home.hero.cta.contact': 'सम्पर्क गर्नुहोस्',

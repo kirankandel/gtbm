@@ -1,18 +1,20 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SeoHead from '../components/SeoHead';
 
 const Contact = () => {
     const { t } = useLanguage();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Thank you for the inquiry! We will contact you soon.');
+        alert('Thank you! We will contact you shortly.');
     };
 
     return (
-        <React.Fragment>
-            <section className="bg-primary text-white py-16 text-center">
+        <div className="pt-20">
+            <SeoHead title={t('nav.contact')} description={t('contact.subtitle')} />
+
+            <section className="bg-primary text-white py-20 text-center">
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl font-bold mb-2 text-white">{t('contact.title')}</h1>
                     <p className="text-lg">{t('contact.subtitle')}</p>
@@ -86,7 +88,7 @@ const Contact = () => {
                     </div>
                 </div>
             </section>
-        </React.Fragment>
+        </div>
     );
 };
 
