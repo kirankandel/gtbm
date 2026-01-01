@@ -31,11 +31,11 @@ const Home = () => {
             </section>
 
             {/* Services Preview */}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold font-heading text-text mb-4">{t('home.services.title')}</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">{t('home.services.subtitle')}</p>
+                        <h2 className="text-3xl font-bold font-heading text-text dark:text-white mb-4">{t('home.services.title')}</h2>
+                        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t('home.services.subtitle')}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -44,12 +44,12 @@ const Home = () => {
                             { icon: <HomeIcon size={32} />, title: t('home.service.realestate'), desc: t('home.service.realestate.desc') },
                             { icon: <PenTool size={32} />, title: t('home.service.design'), desc: t('home.service.design.desc') }
                         ].map((service, index) => (
-                            <div key={index} className="p-6 border border-gray-100 rounded-xl hover:shadow-lg transition-shadow bg-white">
-                                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4">
+                            <div key={index} className="p-6 border border-gray-100 dark:border-gray-800 rounded-xl hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+                                <div className="w-12 h-12 bg-primary/10 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-primary dark:text-blue-400 mb-4">
                                     {service.icon}
                                 </div>
-                                <h3 className="text-xl font-bold mb-2 font-heading">{service.title}</h3>
-                                <p className="text-gray-600">{service.desc}</p>
+                                <h3 className="text-xl font-bold mb-2 font-heading dark:text-gray-100">{service.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-400">{service.desc}</p>
                             </div>
                         ))}
                     </div>

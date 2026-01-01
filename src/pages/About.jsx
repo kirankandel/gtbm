@@ -16,17 +16,17 @@ const About = () => {
             </section>
 
             {/* Profile Section */}
-            <section id="profile" className="py-20 bg-background text-text">
+            <section id="profile" className="py-20 bg-background dark:bg-gray-900 text-text dark:text-gray-200 transition-colors duration-300">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row gap-16 items-center">
                         <div className="flex-1">
-                            <h2 className="text-2xl font-bold mb-4 text-primary">{t('about.profile.title')}</h2>
-                            <p className="mb-4 leading-relaxed">{t('about.profile.p1')}</p>
-                            <p className="mb-4 leading-relaxed">{t('about.profile.p2')}</p>
+                            <h2 className="text-2xl font-bold mb-4 text-primary dark:text-blue-400">{t('about.profile.title')}</h2>
+                            <p className="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">{t('about.profile.p1')}</p>
+                            <p className="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">{t('about.profile.p2')}</p>
                             <ul className="mt-6 flex flex-col gap-2">
-                                <li className="text-lg"><strong>{t('about.value.integrity')}</strong> {t('about.value.integrity.desc')}</li>
-                                <li className="text-lg"><strong>{t('about.value.quality')}</strong> {t('about.value.quality.desc')}</li>
-                                <li className="text-lg"><strong>{t('about.value.innovation')}</strong> {t('about.value.innovation.desc')}</li>
+                                <li className="text-lg text-gray-800 dark:text-gray-200"><strong>{t('about.value.integrity')}</strong> {t('about.value.integrity.desc')}</li>
+                                <li className="text-lg text-gray-800 dark:text-gray-200"><strong>{t('about.value.quality')}</strong> {t('about.value.quality.desc')}</li>
+                                <li className="text-lg text-gray-800 dark:text-gray-200"><strong>{t('about.value.innovation')}</strong> {t('about.value.innovation.desc')}</li>
                             </ul>
                         </div>
                         <div className="flex-1 w-full">
@@ -41,20 +41,20 @@ const About = () => {
             </section>
 
             {/* Director Section */}
-            <section id="director" className="py-20 bg-gray-50 text-text">
+            <section id="director" className="py-20 bg-gray-50 dark:bg-gray-950 text-text dark:text-gray-200 transition-colors duration-300">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-8 text-primary">{t('about.director.title')}</h2>
-                    <div className="flex flex-col md:flex-row gap-12 items-start bg-white p-8 md:p-12 rounded-2xl shadow-lg mt-8 max-w-5xl mx-auto border-t-4 border-primary">
+                    <h2 className="text-3xl font-bold text-center mb-8 text-primary dark:text-blue-400">{t('about.director.title')}</h2>
+                    <div className="flex flex-col md:flex-row gap-12 items-start bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-lg mt-8 max-w-5xl mx-auto border-t-4 border-primary dark:border-blue-600">
                         <img
                             src="/images/director.jpeg"
                             alt="Kamal Kharel"
-                            className="w-[150px] h-[150px] rounded-full object-cover border-4 border-gray-100 shadow-md mx-auto md:mx-0 flex-shrink-0"
+                            className="w-[150px] h-[150px] rounded-full object-cover border-4 border-gray-100 dark:border-gray-700 shadow-md mx-auto md:mx-0 flex-shrink-0"
                         />
                         <div className="flex-1">
-                            <blockquote className="text-lg leading-relaxed text-text mb-4 italic">
+                            <blockquote className="text-lg leading-relaxed text-text dark:text-gray-200 mb-4 italic">
                                 {t('about.director.message')}
                             </blockquote>
-                            <cite className="font-bold text-primary not-italic block mt-4">{t('about.director.cite')}</cite>
+                            <cite className="font-bold text-primary dark:text-blue-400 not-italic block mt-4">{t('about.director.cite')}</cite>
                         </div>
                     </div>
                 </div>

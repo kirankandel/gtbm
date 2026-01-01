@@ -8,7 +8,7 @@ const Footer = () => {
     const { t } = useLanguage();
 
     return (
-        <footer className="bg-primary text-white pt-16 pb-8">
+        <footer className="bg-primary dark:bg-gray-950 text-white pt-16 pb-8 transition-colors duration-300">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {/* Brand Info */}

@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +20,9 @@ const Header = () => {
     ];
 
     return (
-        <header className="bg-white shadow-md fixed w-full top-0 z-50">
+        <header className="bg-white dark:bg-gray-900 shadow-md fixed w-full top-0 z-50 transition-colors duration-300">
             {/* Top Bar */}
-            <div className="bg-primary text-white py-2 text-sm hidden md:block">
+            <div className="bg-primary dark:bg-blue-900 text-white py-2 text-sm hidden md:block">
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <div className="flex gap-6">
                         <span className="flex items-center gap-2"><Phone size={14} /> +977 9851074241</span>
@@ -47,8 +47,8 @@ const Header = () => {
                                         to={link.path}
                                         className={({ isActive }) =>
                                             isActive
-                                                ? "text-primary border-b-2 border-primary pb-1"
-                                                : "text-text hover:text-primary transition-colors"
+                                                ? "text-primary dark:text-secondary border-b-2 border-primary dark:border-secondary pb-1"
+                                                : "text-text dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors"
                                         }
                                     >
                                         {link.name}
@@ -56,6 +56,7 @@ const Header = () => {
                                 </li>
                             ))}
                         </ul>
+                        <ThemeToggle />
                         <LanguageSwitcher />
                         <a href="tel:9851074241" className="bg-secondary text-white px-5 py-2 rounded font-bold hover:bg-orange-600 transition-colors">
                             {t('nav.callnow')}
@@ -64,6 +65,7 @@ const Header = () => {
 
                     {/* Mobile Menu Button & Language Switcher */}
                     <div className="md:hidden flex items-center gap-4">
+                        <ThemeToggle />
                         <LanguageSwitcher />
                         <button onClick={toggleMenu} className="text-primary focus:outline-none">
                             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -73,7 +75,7 @@ const Header = () => {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <div className="md:hidden mt-4 bg-gray-50 p-4 rounded-lg shadow-inner">
+                    <div className="md:hidden mt-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg shadow-inner">
                         <ul className="flex flex-col gap-4 font-medium">
                             {navLinks.map((link) => (
                                 <li key={link.name}>
@@ -81,7 +83,7 @@ const Header = () => {
                                         to={link.path}
                                         onClick={() => setIsOpen(false)}
                                         className={({ isActive }) =>
-                                            isActive ? "text-primary block font-bold" : "text-text block"
+                                            isActive ? "text-primary dark:text-secondary block font-bold" : "text-text dark:text-gray-200 block"
                                         }
                                     >
                                         {link.name}
