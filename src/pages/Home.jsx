@@ -3,7 +3,12 @@ import { ArrowRight, Building, Home as HomeIcon, PenTool } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SeoHead from '../components/SeoHead';
 import ScrollReveal from '../components/ScrollReveal';
-import StatsSection from '../components/StatsSection';
+import WhyChooseUs from '../components/WhyChooseUs';
+import ProcessTimeline from '../components/ProcessTimeline';
+import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
+import PropertySearch from '../components/PropertySearch';
+import SellProperty from '../components/SellProperty';
 
 const Home = () => {
     const { t } = useLanguage();
@@ -13,7 +18,7 @@ const Home = () => {
             <SeoHead title={t('nav.home')} />
 
             {/* Hero Section */}
-            <section className="relative py-32 px-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/hero-vector.jpg')" }}>
+            <section className="relative pt-32 pb-48 px-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/hero-vector.jpg')" }}>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/60 z-0"></div>
                 <div className="container mx-auto text-center max-w-4xl relative z-10">
                     <ScrollReveal width="100%">
@@ -40,10 +45,24 @@ const Home = () => {
                 </div>
             </section>
 
-            <StatsSection />
+            {/* Property Search Bar (Overlapping Hero) */}
+            <PropertySearch />
+
+            <div className="mt-12"></div>
+
+            <div className="mt-12"></div>
+
+            <WhyChooseUs />
+
+            {/* Featured Properties Preview (Replaced old services CTA logic essentially) */}
+            {/* We will keep services preview but add more real estate focus later */}
+
+            <ProcessTimeline />
+
+            <SellProperty />
 
             {/* Services Preview */}
-            <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <ScrollReveal width="100%">
@@ -59,18 +78,23 @@ const Home = () => {
                             { icon: <PenTool size={32} />, title: t('home.service.design'), desc: t('home.service.design.desc') }
                         ].map((service, index) => (
                             <ScrollReveal key={index} width="100%" delay={index * 0.2}>
-                                <div className="p-6 border border-gray-100 dark:border-gray-800 rounded-xl hover:shadow-lg transition-all bg-white dark:bg-gray-800 h-full">
-                                    <div className="w-12 h-12 bg-primary/10 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-primary dark:text-blue-400 mb-4">
+                                <div className="p-8 border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-xl transition-all bg-white dark:bg-gray-900 h-full group">
+                                    <div className="w-14 h-14 bg-primary/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary dark:text-blue-400 mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                                         {service.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2 font-heading dark:text-gray-100">{service.title}</h3>
-                                    <p className="text-gray-600 dark:text-gray-400">{service.desc}</p>
+                                    <h3 className="text-xl font-bold mb-3 font-heading text-gray-800 dark:text-gray-100">{service.title}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{service.desc}</p>
                                 </div>
                             </ScrollReveal>
                         ))}
                     </div>
                 </div>
             </section>
+
+            <Testimonials />
+
+            <FAQ />
+
         </div>
     );
 };

@@ -16,6 +16,7 @@ const Header = () => {
         { name: t('nav.about'), path: '/about' },
         { name: t('nav.services'), path: '/services' },
         { name: t('nav.projects'), path: '/projects' },
+        { name: t('nav.tools'), path: '/tools' },
         { name: t('nav.contact'), path: '/contact' },
     ];
 
@@ -34,8 +35,10 @@ const Header = () => {
             <nav className="container mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <Link to="/" className="text-2xl font-bold font-heading text-primary flex items-center gap-2">
-                        GTBM
+                    {/* Logo */}
+                    <Link to="/" className="flex flex-col items-center">
+                        <img src="/images/logo.png" alt="GTBM Logo" className="h-10 w-auto" />
+                        <span className="font-bold font-heading text-primary text-xs leading-none mt-1">GTBM</span>
                     </Link>
 
                     {/* Desktop Menu */}
