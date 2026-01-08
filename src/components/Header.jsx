@@ -21,7 +21,7 @@ const Header = () => {
     ];
 
     return (
-        <header className="bg-white dark:bg-gray-900 shadow-md fixed w-full top-0 z-50 transition-colors duration-300">
+        <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm fixed w-full top-0 z-50 transition-all duration-300 border-b border-white/20 dark:border-gray-800">
             {/* Top Bar */}
             <div className="bg-primary dark:bg-blue-900 text-white py-2 text-sm hidden md:block">
                 <div className="container mx-auto px-4 flex justify-between items-center">
