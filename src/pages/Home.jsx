@@ -73,8 +73,8 @@ const Home = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { icon: <Building size={32} />, title: t('home.service.construction'), desc: t('home.service.construction.desc') },
                             { icon: <HomeIcon size={32} />, title: t('home.service.realestate'), desc: t('home.service.realestate.desc') },
+                            { icon: <Building size={32} />, title: t('home.service.construction'), desc: t('home.service.construction.desc') },
                             { icon: <PenTool size={32} />, title: t('home.service.design'), desc: t('home.service.design.desc') }
                         ].map((service, index) => (
                             <ScrollReveal key={index} width="100%" delay={index * 0.2}>

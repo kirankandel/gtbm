@@ -13,50 +13,62 @@ const Projects = () => {
     const properties = [
         {
             id: 1,
-            title: "Prime Land in Baneshwor",
-            location: "Baneshwor, Kathmandu",
-            price: "60 Lakhs / Aana",
-            size: "4 Aana",
-            road: "13 ft",
+            title: "Prime Residential Plot",
+            location: "Bhaisepati, Lalitpur",
+            price: "55 Lakhs / Aana",
+            size: "5 Aana",
+            road: "20 ft Blacktopped",
             type: "land",
             category: "sale",
-            image: "/images/projects/site_sankhamul/site_sankhamul_1.jpeg",
+            image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800",
             featured: true
         },
         {
             id: 2,
-            title: "Commercial Complex Site",
+            title: "Commercial Land on Highway",
             location: "Koteshwor, Kathmandu",
-            price: "85 Lakhs / Aana",
-            size: "10 Aana",
-            road: "20 ft (Main Road)",
+            price: "95 Lakhs / Aana",
+            size: "12 Aana",
+            road: "4 Lane Highway",
             type: "land",
             category: "sale",
             image: "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=800",
-            featured: false
+            featured: true
         },
         {
             id: 3,
-            title: "Modern House for Sale",
+            title: "Affordable Housing Plot",
             location: "Imadol, Lalitpur",
-            price: "2.5 Cr",
+            price: "35 Lakhs / Aana",
             size: "3.5 Aana",
-            road: "10 ft",
-            type: "house",
+            road: "13 ft",
+            type: "land",
             category: "sale",
-            image: "https://images.unsplash.com/photo-1600596542815-e32cb5313d51?auto=format&fit=crop&q=80&w=800",
+            image: "https://images.unsplash.com/photo-1626590833158-71e84a282475?auto=format&fit=crop&q=80&w=800", // Generic land/nature image
             featured: true
         },
         {
             id: 4,
-            title: "Residential Plot",
-            location: "Pepsicola, Kathmandu",
-            price: "45 Lakhs / Aana",
-            size: "5 Aana",
-            road: "12 ft",
-            type: "land",
+            title: "House for Sale",
+            location: "Tokha, Kathmandu",
+            price: "2.8 Cr",
+            size: "4 Aana",
+            road: "14 ft",
+            type: "house",
             category: "sale",
-            image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800",
+            image: "https://images.unsplash.com/photo-1600596542815-e32cb5313d51?auto=format&fit=crop&q=80&w=800",
+            featured: false
+        },
+        {
+            id: 5,
+            title: "Ongoing Construction",
+            location: "Baneshwor, Kathmandu",
+            price: "Contact for Quote",
+            size: "4 Aana",
+            road: "13 ft",
+            type: "construction", // Assuming this meant to classify as construction project
+            category: "construction",
+            image: "/images/projects/site_sankhamul/site_sankhamul_1.jpeg",
             featured: false
         }
     ];
@@ -86,8 +98,8 @@ const Projects = () => {
                                 key={f}
                                 onClick={() => setFilter(f)}
                                 className={`px-6 py-2 rounded-full font-bold capitalize transition-all whitespace-nowrap ${filter === f
-                                        ? 'bg-secondary text-primary shadow-md'
-                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                    ? 'bg-secondary text-primary shadow-md'
+                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                     }`}
                             >
                                 {f === 'all' ? 'All Properties' : t(`property.type.${f}`)}
