@@ -10,7 +10,7 @@ export const translations = {
         'nav.callnow': 'Call Now',
 
         // Footer
-        'footer.description': 'Building Dreams, Securing Futures in Kathmandu.',
+        'footer.description': 'Building Dreams, Securing Futures across Nepal.',
         'footer.quicklinks': 'Quick Links',
         'footer.contact': 'Reach Out',
         'footer.rights': 'All rights reserved.',
@@ -32,7 +32,7 @@ export const translations = {
         // Home Page
         'home.hero.title': 'Building Dreams,',
         'home.hero.title.highlight': 'Securing Futures',
-        'home.hero.title.suffix': 'in Kathmandu.',
+        'home.hero.title.suffix': 'across Nepal.',
         'home.hero.subtitle': 'Your trusted partner for Land Trading, Real Estate, and Construction.',
         'home.hero.cta.services': 'Explore Services',
         'home.hero.cta.contact': 'Get a Free Quote',
@@ -86,7 +86,7 @@ export const translations = {
         'about.title': 'Our Legacy',
         'about.subtitle': 'Building Trust, Delivering Excellence since inception.',
         'about.profile.title': 'Who We Are',
-        'about.profile.p1': 'GTBM (Gulmeli Three Brothers Multipurpose Pvt Ltd) is your premier partner for land and real estate in Kathmandu. We specialize in finding the perfect plot for your future.',
+        'about.profile.p1': 'GTBM (Gulmeli Three Brothers Multipurpose Pvt Ltd) is your premier partner for land and real estate across Nepal. We specialize in finding the perfect plot for your future.',
         'about.profile.p2': 'Our expertise spans across strategic land plotting, buying/selling properties, and construction services. We pride ourselves on legal clarity (Naksha Pass) and fair dealing.',
         'about.value.integrity': 'Integrity:',
         'about.value.integrity.desc': 'Zero hidden costs. Full transparency.',
@@ -102,7 +102,7 @@ export const translations = {
         'services.title': 'Our Expertise',
         'services.subtitle': 'End-to-End Solutions for Real Estate & Construction.',
         'services.realestate.title': 'Real Estate (Buy/Sell/Rent)',
-        'services.realestate.desc': 'Secure and transparent property transactions across Kathmandu.',
+        'services.realestate.desc': 'Secure and transparent property transactions across Nepal.',
         'services.realestate.item1': 'Land Plotting & Development',
         'services.realestate.item2': 'Residential House Sales',
         'services.realestate.item3': 'Commercial Rentals',
@@ -212,7 +212,7 @@ export const translations = {
         'nav.callnow': 'अहिले फोन गर्नुहोस्',
 
         // Footer
-        'footer.description': 'काठमाडौँमा सपनाहरू निर्माण गर्दै, भविष्य सुरक्षित गर्दै।',
+        'footer.description': 'नेपाल भरि सपनाहरू निर्माण गर्दै, भविष्य सुरक्षित गर्दै।',
         'footer.quicklinks': 'द्रुत लिङ्कहरू',
         'footer.contact': 'सम्पर्क ठेगाना',
         'footer.rights': 'सर्वाधिकार सुरक्षित।',
@@ -234,7 +234,7 @@ export const translations = {
         // Home Page
         'home.hero.title': 'सपनाहरू निर्माण गर्दै,',
         'home.hero.title.highlight': 'भविष्य सुरक्षित गर्दै',
-        'home.hero.title.suffix': 'काठमाडौँमा।',
+        'home.hero.title.suffix': 'नेपाल भरि।',
         'home.hero.subtitle': 'जग्गा किनबेच, रियल इस्टेट, र निर्माणको लागि तपाईंको विश्वसनीय साझेदार।',
         'home.hero.cta.services': 'सेवाहरू हेर्नुहोस्',
         'home.hero.cta.contact': 'निःशुल्क परामर्श लिनुहोस्',
@@ -288,7 +288,7 @@ export const translations = {
         'about.title': 'हाम्रो विरासत',
         'about.subtitle': 'स्थापनाकाल देखि नै विश्वास र उत्कृष्टता प्रदान गर्दै।',
         'about.profile.title': 'हामी को हौं',
-        'about.profile.p1': 'GTBM (गुल्मेली थ्री ब्रदर्स मल्टिपर्पज प्रा.लि.) काठमाडौंमा जग्गा र घर जग्गाको लागि तपाईंको प्रमुख साझेदार हो। हामी तपाईंको भविष्यको लागि उपयुक्त जग्गा खोज्न विशेषज्ञ छौं।',
+        'about.profile.p1': 'GTBM (गुल्मेली थ्री ब्रदर्स मल्टिपर्पज प्रा.लि.) नेपाल भरि जग्गा र घर जग्गाको लागि तपाईंको प्रमुख साझेदार हो। हामी तपाईंको भविष्यको लागि उपयुक्त जग्गा खोज्न विशेषज्ञ छौं।',
         'about.profile.p2': 'हाम्रो विशेषज्ञता रणनीतिक जग्गा प्लटिङ, घर जग्गा खरिद/बिक्री, र निर्माण सेवाहरूमा फैलिएको छ। हामी कानूनी स्पष्टता (नक्सा पास) र निष्पक्ष कारोबारमा गर्व गर्छौं।',
         'about.value.integrity': 'इमानदारी:',
         'about.value.integrity.desc': 'कुनै लुकेको खर्च छैन। पूर्ण पारदर्शिता।',
@@ -304,7 +304,7 @@ export const translations = {
         'services.title': 'हाम्रो विशेषज्ञता',
         'services.subtitle': 'रियल इस्टेट र निर्माणका लागि पूर्ण समाधान।',
         'services.realestate.title': 'रियल इस्टेट (किनबेच)',
-        'services.realestate.desc': 'काठमाडौं भर सुरक्षित र पारदर्शी सम्पत्ति कारोबार।',
+        'services.realestate.desc': 'नेपाल भर सुरक्षित र पारदर्शी सम्पत्ति कारोबार।',
         'services.realestate.item1': 'जग्गा प्लटिङ र विकास',
         'services.realestate.item2': 'आवासीय घर बिक्री',
         'services.realestate.item3': 'व्यावसायिक भाडा',

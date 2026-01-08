@@ -10,7 +10,7 @@ const Tools = () => {
 
     return (
         <div className="pt-20">
-            <SeoHead title={t('nav.tools')} description="Real Estate Tools and Calculators for Kathmandu, Nepal." />
+            <SeoHead title={t('nav.tools')} description="Real Estate Tools and Calculators for Nepal." />
 
             <section className="bg-primary text-white py-20">
                 <div className="container mx-auto px-4 text-center">

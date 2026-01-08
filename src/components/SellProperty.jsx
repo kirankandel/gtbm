@@ -65,6 +65,14 @@ const SellProperty = () => {
                                         <option value="kathmandu">Kathmandu</option>
                                         <option value="bhaktapur">Bhaktapur</option>
                                         <option value="lalitpur">Lalitpur</option>
+                                        <option value="pokhara">Pokhara</option>
+                                        <option value="biratnagar">Biratnagar</option>
+                                        <option value="birgunj">Birgunj</option>
+                                        <option value="dharan">Dharan</option>
+                                        <option value="hetauda">Hetauda</option>
+                                        <option value="butwal">Butwal</option>
+                                        <option value="chitwan">Chitwan</option>
+                                        <option value="other">Other</option>
                                     </select>
                                     <button className="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition-colors">
                                         {t('sell.form.submit')}
